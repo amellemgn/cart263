@@ -10,8 +10,8 @@ function setup(){
     let pixel = document.createElement('div');
     pixel.setAttribute('class','pixel');
     document.body.appendChild(pixel);
-    document.addEventListener('mouseover', paint);
     document.addEventListener('click', remove);
+    document.addEventListener('mouseover', paint);
   }
 }
 
@@ -23,10 +23,18 @@ function paint(e){
 }
 
 function resetPixel(pixel){
+if (pixel.classList.contains('removed')){
+
+}
+else{
   pixel.style.backgroundColor = "black";
+  }
 }
 
 function remove(e){
   let pixel = e.target;
-  pixel.style.opacity = "0";
+  // pixel.style.backgroundColor = 'white';
+  // pixel.classList.remove("pixel");
+   pixel.style.opacity = "0";
+   pixel.setAttribute('class', 'removed');
 }
