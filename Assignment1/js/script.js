@@ -3,7 +3,7 @@
 /*
 
 Assignment 1 - Pixel Painter
-Pippin Barr - goofed up by Amelle Margaron
+Pippin Barr / Amelle Margaron
 Paint pixels and mess around w your mouse and keyboard
 
 */
@@ -28,10 +28,12 @@ function setup() {
     document.addEventListener('click', remove);
     document.addEventListener('mouseover', paint);
     document.addEventListener('keydown', rotate);
-
   }
 }
-
+//Paint
+//
+//called by mouseover event listener. changes the pixel color to a randomly generated color nad
+// then resets it after a specific amount of time
 function paint(e) {
   let pixel = e.target;
   pixel.style.backgroundColor = '#' + (0x1000000 + (Math.random()) * 0xffffff).toString(16).substr(1, 6);
@@ -39,21 +41,24 @@ function paint(e) {
   setTimeout(resetPixel, 1000, pixel);
 }
 
+//resetPixel
+//
+//changes pixel color back to black
 function resetPixel(pixel) {
-  if (pixel.classList.contains('removed')) {
-
-  } else {
     pixel.style.backgroundColor = "black";
-  }
 }
 
+//remove
+//
+//change the pixel opacity to 0
 function remove(e) {
   let pixel = e.target;
   pixel.style.opacity = "0";
-
 }
 
-// from patrick chavez' code, tuesday section
+//rotate
+//
+// finds all pixel class elements. if left or right key is held down, all the elements rotates to the left or to the right by one degree.
 function rotate(e) {
   let pixels = document.getElementsByClassName('pixel');
   if (e.keyCode === 39) {
@@ -61,7 +66,6 @@ function rotate(e) {
     for (let i = 0; i < pixels.length; i++) {
       pixels[i].style.transform = `rotate(${rotation}deg)`;
     }
-
   }
   if (e.keyCode === 37) {
     rotation -= 1;
@@ -69,6 +73,4 @@ function rotate(e) {
       pixels[i].style.transform = `rotate(${rotation}deg)`;
     }
   }
-
-
 }
