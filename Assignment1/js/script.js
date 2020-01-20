@@ -3,7 +3,7 @@
 /*
 
 Assignment 1 - Pixel Painter
-Amelle Margaron
+Pippin Barr - goofed up by Amelle Margaron
 Paint pixels and mess around w your mouse and keyboard
 
 */
@@ -51,10 +51,8 @@ else{
 
 function remove(e){
   let pixel = e.target;
-  // pixel.style.backgroundColor = 'white';
-  // pixel.classList.remove("pixel");
-   pixel.style.opacity = "0";
-   pixel.setAttribute('class', 'removed');
+  pixel.style.opacity = "0";
+
 }
 
 // from patrick chavez' code, tuesday section
