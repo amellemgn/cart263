@@ -14,6 +14,9 @@ function setup() {
   secretClass = $('.secret');
   secretsTotal = secretClass.length;
   $("#total").text(secretsTotal);
+
+  secretClass.on('mouseover',mouseOver);
+
   setInterval(update, INTERVAL_LENGTH); //!!!!!!i'm replacing hard-coded values!!!!! i made this and the math random percentage into constants
   $spans.on('click', spanClicked);
 }
@@ -36,4 +39,10 @@ function spanClicked(){
   console.log("clicked");
   $(this).removeClass("revealed");
   $(this).addClass("redacted");
+}
+
+function mouseOver(){ // (remember that in an mouse event handler 'this' refers to the targeted element)
+$(this).addClass("found");
+$(this).off();
+secretsFound +=1;
 }
