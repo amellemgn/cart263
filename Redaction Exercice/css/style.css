@@ -1,0 +1,14 @@
+body{
+font-family: Futura;
+}
+
+.redacted{
+background-color: black;
+color: transparent;
+}
+
+.revealed{
+background-color: transparent;
+color: red;
+font-style: italic;
+}
