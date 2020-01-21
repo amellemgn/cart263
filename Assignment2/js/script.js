@@ -7,8 +7,8 @@ $(document).ready(setup);
   let $spans;
 
 function setup() {
-
-  $spans = $('span');
+  $spans = $('span'); //!!!! you declared the $spans variable out of setup, but then did the select al $('span') thing here
+  
   setInterval(update, 500);
   $spans.on('click', spanClicked);
 }
