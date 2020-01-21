@@ -80,10 +80,18 @@ function rotate(e) {
   }
 }
 
+//typed
+//
+//saves the key that is being held down
 function typed(e){
   currentKey = e.keyCode;
   console.log(currentKey);
 }
+
+//addText
+//
+//uhhhhh this doesn't work
 function addText(e){
-  e.innerHtml = currentKey;
+  e.innerHtml = String.fromCharCode(currentKey);
+  //from Stack OVerflow lol +
 }
