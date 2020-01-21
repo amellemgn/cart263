@@ -10,6 +10,8 @@ Paint pixels and mess around w your mouse and keyboard
 
 //global rotation variable
 let rotation = 0;
+// current key variable starts as empty String
+let currentKey = "";
 // call setup every time window is loaded
 window.onload = setup;
 //setup
@@ -28,6 +30,7 @@ function setup() {
     document.addEventListener('click', remove);
     document.addEventListener('mouseover', paint);
     document.addEventListener('keydown', rotate);
+    document.addEventListener('keydown', typed);
   }
 }
 //Paint
@@ -51,7 +54,7 @@ function resetPixel(pixel) {
 //remove
 //
 //change the pixel opacity to 0
-function remove(e) {
+function remove(e) { // here: why did i need to use e as a parameter, could i not have passed pixel directly?
   let pixel = e.target;
   pixel.style.opacity = "0";
 }
@@ -73,4 +76,9 @@ function rotate(e) {
       pixels[i].style.transform = `rotate(${rotation}deg)`;
     }
   }
+}
+
+function typed(e){
+  currentKey = e.keyCode;
+  console.log(currentKey);
 }
