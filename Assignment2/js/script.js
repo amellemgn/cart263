@@ -45,5 +45,8 @@ $(this).addClass("found");
 $(this).off();
 secretsFound +=1;
 console.log(secretsFound);
-$("#found").text(secretsFound);
+$("#found").text(secretsFound); // if i wanted to send this back to setup.....
 }
+
+// NOTES : add popup at the end that says do u want to continue, with yes and no option. if no, new popup: ok ur done go scroll twitter.
+// if yes: reset secret and wahtever spans but this time if you highlight them there's some edgy stuff that happen (would love to find an aesthetic rotation squre thing. maybe the font size grows obnoxiously larger as you highlight stuff. also you get a highlight tool)
