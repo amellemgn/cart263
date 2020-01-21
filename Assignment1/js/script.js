@@ -27,10 +27,12 @@ function setup() {
     document.body.appendChild(pixel);
     //tag the document with event listeners - things happen which cause more things to happen
     //clicking - removes pixels / mouseover colors pixels / pressing keys rotates canvas
+    // and:
     document.addEventListener('click', remove);
     document.addEventListener('mouseover', paint);
     document.addEventListener('keydown', rotate);
     document.addEventListener('keydown', typed);
+    document.addEventListener('mouseover', addText);
   }
 }
 //Paint
@@ -81,4 +83,7 @@ function rotate(e) {
 function typed(e){
   currentKey = e.keyCode;
   console.log(currentKey);
+}
+function addText(e){
+  e.innerHtml = currentKey;
 }
