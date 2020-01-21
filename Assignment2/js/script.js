@@ -1,15 +1,20 @@
 "use strict";
 
 
-
 $(document).ready(setup);
-
+  const INTERVAL_LENGTH = 500;
+  const REDACTION_PROBABILITY = 0.1;
+  let secretsFound;
+  let secretsTotal;
+  let secretClass;
   let $spans;
 
 function setup() {
   $spans = $('span'); //!!!! you declared the $spans variable out of setup, but then did the select al $('span') thing here
-  
-  setInterval(update, 500);
+  secretClass = $('.secret');
+  secretsTotal = secretClass.length;
+  $("#total").text(secretsTotal);
+  setInterval(update, INTERVAL_LENGTH); //!!!!!!i'm replacing hard-coded values!!!!! i made this and the math random percentage into constants
   $spans.on('click', spanClicked);
 }
 
@@ -21,7 +26,7 @@ function update() {
 function updateSpan() {
   console.log("updating span");
   let ok = Math.random();
-  if (ok < 0.1) {
+  if (ok < REDACTION_PROBABILITY) {
     $(this).removeClass("redacted");
     $(this).addClass("revealed");
   }

@@ -12,3 +12,11 @@ background-color: transparent;
 color: red;
 font-style: italic;
 }
+
+.found{
+  background-color: yellow;
+}
+
+#found, #total{
+  color: blue;
+}
