@@ -4,7 +4,7 @@
 $(document).ready(setup);
   const INTERVAL_LENGTH = 500;
   const REDACTION_PROBABILITY = 0.1;
-  let secretsFound;
+  let secretsFound=0;
   let secretsTotal;
   let secretClass;
   let $spans;
@@ -14,7 +14,6 @@ function setup() {
   secretClass = $('.secret');
   secretsTotal = secretClass.length;
   $("#total").text(secretsTotal);
-
   secretClass.on('mouseover',mouseOver);
 
   setInterval(update, INTERVAL_LENGTH); //!!!!!!i'm replacing hard-coded values!!!!! i made this and the math random percentage into constants
@@ -45,4 +44,6 @@ function mouseOver(){ // (remember that in an mouse event handler 'this' refers 
 $(this).addClass("found");
 $(this).off();
 secretsFound +=1;
+console.log(secretsFound);
+$("#found").text(secretsFound);
 }

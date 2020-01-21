@@ -1,5 +1,6 @@
 body{
 font-family: Futura;
+
 }
 
 .redacted{
@@ -15,6 +16,7 @@ font-style: italic;
 
 .found{
   background-color: yellow;
+  color: black;
 }
 
 #found, #total{
