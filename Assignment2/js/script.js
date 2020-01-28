@@ -47,14 +47,16 @@ function mouseOver() { // (remember that in an mouse event handler 'this' refers
   secretsFound += 1;
   $("#found").text(secretsFound); // if i wanted to send this back to setup.....
   if (secretsFound === secretsTotal) {
-     $('.container').show();
-     $('.container').text("keep looking?");
+     // $('.container').show();
+     // $('.container').text("keep looking?");
+     callPopup();
   }
 }
 
-// function callPopup(){
-//   $('.container').show();
-// }
+function callPopup(){
+  $('.container').show();
+$('.container').text("You've found all the secrets");
+}
 
 
 // NOTES : add popup at the end that says do u want to continue, with yes and no buttons. if no, new popup: ok ur done go scroll twitter.

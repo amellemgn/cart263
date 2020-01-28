@@ -1,6 +1,8 @@
 body{
-font-family: Futura;
-font-size: 12px;
+font-family: 'Helvetica';
+font-size: 14px;
+width: 30%;
+text-align: justify;
 }
 
 .redacted{
@@ -29,26 +31,29 @@ font-style: italic;
   border-color: red;
   border-width: medium;
   background-color: yellow;
-  width: 100px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
   display: inline;
-}
-
-.container h1 {
-text-align: center;
-font-family: Futura;
-font-size: 12px;
 }
 
 .yes{
   width: 20px;
   height: 20px;
-  background-color: red;
+  background-color: pink;
   /* flexbox left  */
 }
 
 .no{
   width: 20px;
   height: 20px;
-  background-color: blue;
+  background-color: purple;
+}
+
+.smiley{
+  margin-left: auto;
+  margin-right: auto;
+
+}
+.smiley img{
+width: 30px;
 }
