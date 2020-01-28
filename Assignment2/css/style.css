@@ -1,7 +1,6 @@
 body{
 font-family: Futura;
 font-size: 12px;
-
 }
 
 .redacted{
@@ -14,7 +13,9 @@ background-color: transparent;
 color: red;
 font-style: italic;
 }
-
+.secret{
+  color: black;
+}
 .found{
   background-color: yellow;
   color: black;
@@ -22,4 +23,32 @@ font-style: italic;
 
 #found, #total{
   color: blue;
+}
+
+.container {
+  border-color: red;
+  border-width: medium;
+  background-color: yellow;
+  width: 100px;
+  height: 100px;
+  display: inline;
+}
+
+.container h1 {
+text-align: center;
+font-family: Futura;
+font-size: 12px;
+}
+
+.yes{
+  width: 20px;
+  height: 20px;
+  background-color: red;
+  /* flexbox left  */
+}
+
+.no{
+  width: 20px;
+  height: 20px;
+  background-color: blue;
 }
