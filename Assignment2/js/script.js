@@ -4,6 +4,7 @@
 $(document).ready(setup);
 const INTERVAL_LENGTH = 500;
 const REDACTION_PROBABILITY = 0.1;
+const barkSound = new Audio("assets/sounds/bark.wav");
 let secretsFound = 0;
 let secretsTotal;
 let secretClass;
@@ -37,6 +38,7 @@ function updateSpan() {
 
 function spanClicked() {
   console.log("clicked");
+  barkSound.play();
   $(this).removeClass("revealed");
   $(this).addClass("redacted");
 }
