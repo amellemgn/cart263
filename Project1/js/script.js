@@ -31,15 +31,17 @@ function setup() {
 //
 function onDrop(event, ui){
   ui.draggable.remove();
-  setTimeout(revert, 250);
+  setTimeout(revert, 500);
 }
-
+//revert
+//
+// creates new liver div at the original location. transitions in through pulse effect bc it's a liver! 
 function revert(){
-  console.log("revert");
-  let $liver = document.createElement('div');
-  $liver.setAttribute('class', 'liver');
+  let liver = document.createElement('div'); // this is js. there's a way of using jquery for this that i dont know lol (this is why it kept fucking up when i was using $liver)
+  liver.setAttribute('class', 'liver');
   let $prometheus = $('.prometheus');
-  $prometheus.append($liver);
+  $(liver).toggle("pulsate");// $(liver) is recognized
+  $prometheus.append(liver);
   //$('.prometheus').append($liver);
-  $liver.draggable({});
+  $(liver).draggable({});
 }
