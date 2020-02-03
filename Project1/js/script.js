@@ -62,7 +62,7 @@ function setup() {
   $('.big').hover(function() {
     $(this).css("width", 250 + "px");
   }, function() {
-    $button.css("width", 200 + "px");
+    $(this).css("width", 200 + "px");
   });
   $vulture.hover(function() {
     $(this).css("color", "transparent");
@@ -88,7 +88,7 @@ function createAnew() {
   console.log(r);
   if (r < REVEAL_POSSIBILITY1) { // what gets passed through here
     selectedVulture = $('#v1');
-  } else if (REVEAL_POSSIBILITY1 < r < REVEAL_POSSIBILITY2) {
+  } else if ( r < REVEAL_POSSIBILITY2) {
     selectedVulture = $('#v2');
   } else {
     selectedVulture = $('#v3');
