@@ -12,18 +12,24 @@ Mostly combines code from various in-class exercises.
 
 *********************************************************************/
 
+// Sabine questions: creating pull resistance: like slowing down frame rate?
+// v2 isn't working
+//random isn't ~feeling like super random : rule that if you get the same vulture twice your third has to be different
+// or just: variable that saves last vulture: if last vulture = new vulture randomize again
 let $vulture;
 let $liver;
 const UPDATE_FREQUENCY = 20;
 const REVEAL_POSSIBILITY1 = 0.3;
 const REVEAL_POSSIBILITY2 = 0.6;
+const BIRD_SOUND = new Audio('assets/sounds/birds.mp3');
+const BITE_SOUND = new Audio('assets/sounds/bite.wav');
 let selectedVulture;
-
 
 
 $(document).ready(setup);
 
 function setup() {
+  $(document).one('mousedown', startMusic);
   // code runs when page loads
   // get all liver objets (just one, could've used id here) + vulture objects
   selectedVulture = $('#v1');
@@ -39,6 +45,11 @@ function setup() {
   //make liver draggable
   $liver.draggable({});
   setInterval(callBackBounce, 1000);
+}
+
+function startMusic(){
+  BITE_SOUND.play();
+  BIRD_SOUND.play();
 }
 
 function createAnew(){
