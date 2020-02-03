@@ -48,7 +48,12 @@ body {
 .button{
   margin-top: 750px;
   margin-left: 650px;
-  width: 100px;
-  height: 40px;
+  width: 150px;
+  height: 70px;
   background-color: yellow;
+  font-size: 8px;
+  text-align: center;
+  vertical-align: middle;
+  color: black;
+  border-radius: 30px;
 }

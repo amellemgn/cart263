@@ -64,10 +64,11 @@ function setup() {
   }, function() {
     $(this).css("width", 200 + "px");
   });
+  // if you were working like this, you'd have to specify parent/child instead of,say, specifying img
   $vulture.hover(function() {
     $(this).css("color", "transparent");
   }, function() {
-    $button.css("color", "yellow");
+    $(this).css("color", "yellow");
   });
 
 }
