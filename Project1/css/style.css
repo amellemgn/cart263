@@ -10,6 +10,14 @@ body {
   position: absolute;
   z-index: -1;
 }
+.box{
+  width: 800px;
+  height: 800px;
+  border-width: 10px;
+  border-color: black;
+  border-style: dashed;
+  margin:auto;
+}
 
 .liver{
   /* // liver class also within prometheus class */
@@ -36,4 +44,11 @@ body {
  content: "";
  clear: both;
  display: table;
+}
+.button{
+  margin-top: 750px;
+  margin-left: 650px;
+  width: 100px;
+  height: 40px;
+  background-color: yellow;
 }
