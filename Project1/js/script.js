@@ -11,9 +11,6 @@ to match your project! Write JavaScript to do amazing things below!
 Mostly combines code from various in-class exercises.
 
 *********************************************************************/
-// set message when click button
-// bounce effect... how to constrain
-//background color: one of those color animations
 let $vulture;
 let $liver;
 let $button;
@@ -25,9 +22,10 @@ const UPDATE_FREQUENCY = 20;
 const REVEAL_POSSIBILITY1 = 0.3;
 const REVEAL_POSSIBILITY2 = 0.6;
 const BIRD_SOUND = new Audio('assets/sounds/birds.mp3');
-const BITE_SOUND = new Audio('assets/sounds/bite.wav');
+const BITE_SOUND = new Audio('assets/sounds/bark.wav');
 const ANIMATION_TIME = 2000;
 let selectedVulture;
+let selectedQuery;
 
 
 $(document).ready(setup);
@@ -35,6 +33,17 @@ $(document).ready(setup);
 function setup() {
   $(document).one('mousedown', startMusic);
   // code runs when page loads
+
+$('#title').on('click', function(){
+  $('.intro').hide();
+  $('.container').show();
+});
+
+  $('#yes, #no, #uh').dialog({
+    autoOpen: false
+  });
+
+  createAnew();
   // get all liver objets (just one, could've used id here) + vulture objects
   selectedVulture = $('#v1');
   $liver = $('.liver');
@@ -42,14 +51,17 @@ function setup() {
   $button = $('.button');
   // make vultures droppable
   $vulture.droppable({
+
     drop: function(event, ui) {
       ui.draggable.remove();
       createAnew();
+      BITE_SOUND.play();
     }
+
   });
 
   //make liver draggable
-  $liver.draggable({containment: (".box"), scroll: false});
+  $liver.draggable({containment: $(".box"), scroll: false});
   setInterval(callBackBounce, 1000);
   //  .hover (what happens mousein, what happens mouseout)
   $button.hover(function() {
@@ -57,7 +69,7 @@ function setup() {
   }, function() {
     $button.css("background-color", "yellow");
   })
-  $button.one('mousedown', clickButton);
+  $button.on('mousedown', clickButton);
   $('.big').hover(function() {
     $(this).css("width", 200 + "px");
   }, function() {
@@ -84,13 +96,14 @@ function setup() {
 
 
 function startMusic() {
-  BITE_SOUND.play();
-  BIRD_SOUND.play();
+   BIRD_SOUND.loop = true;
+   BIRD_SOUND.play();
 }
 
 function createAnew() {
-  let newDiv = $('<div>');
+  let newDiv = $('<img>');
   $(newDiv).attr("class", "liver");
+  $(newDiv).attr("src", "assets/images/liver.png");
   $(newDiv).draggable();
   $(".prometheus").append(newDiv);
 
@@ -108,11 +121,24 @@ function createAnew() {
 
 function callBackBounce() {
   selectedVulture.effect("bounce", {
-    direction: 'down',
+    direction: 'up',
+    distance: 20,
     times: 3
   }, 500);
 }
 
 function clickButton() {
+  let q = Math.random();
+  console.log(q);
+  if (q < REVEAL_POSSIBILITY1) { // what gets passed through here
+    selectedQuery = $('#uh');
+  } else if ( q < REVEAL_POSSIBILITY2) {
+    selectedQuery = $('#yes');
+
+  } else {
+    selectedQuery = $('#no');
+  }
   console.log("button clicked");
+  selectedQuery.dialog('open');
+
 }

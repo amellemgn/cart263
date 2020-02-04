@@ -1,7 +1,20 @@
 body {
 
 }
-
+.container{
+  display: none;
+}
+.intro{
+  background-color: white;
+  width: 100%;
+  height: 100vh;
+}
+.intro h1 {
+  color: black;
+  position: absolute;
+  margin-left: 50%;
+  margin-top: 20%;
+}
 .body {
   /* // this is body class within prometheus class */
   /* background-color: red; */
@@ -13,9 +26,10 @@ body {
 
 .background{
   width: 100%;
-   height: 100vh;
+  height: 100vh;
   /*// from stack overflow: othewise didn't know how to get height to fill screen */
 }
+
 .box{
   width: 800px;
   height: 800px;
@@ -29,19 +43,19 @@ body {
 
 .liver{
   /* // liver class also within prometheus class */
-  background-color: white;
   width: 50px;
   height: 50px;
-  position:absolute;
-  z-index: 2;
-  margin-left: 400px;
+  position: fixed;
+  z-index: 1;
+  /* margin-left: 400px; */
+  left: 400px;
 }
 
 .nest img {
   /* // these are chick images */
   width: 150px;
-  margin-top: 550px;
-  margin-left: 50px;
+  margin-top: 600px;
+  margin-left: 100px;
 }
 
 .vulture {
@@ -50,7 +64,6 @@ body {
   width: 25%;
   padding: 5px;
 
-  vertical-align:
 }
 .nest:: after{
  content: "";
@@ -58,22 +71,33 @@ body {
  display: table;
 }
 .button{
-  margin-top: 750px;
-  margin-left: 650px;
-  width: 150px;
+  width: 300px;
   height: 70px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
   background-color: white;
-  font-size: 8px;
+  font-size: 16px;
   text-align: center;
   vertical-align: middle;
   color: black;
   border-radius: 30px;
   border-color: black;
-  border-style: inset;
+  border-style: dashed;
 }
 
 p {
   word-wrap: break-word;
-  margin: 10px;
-  border: 10px;
+  margin: 24px;
+  border: 15px;
+}
+
+#yes {
+display: none;
+}
+#no{
+display: none;
+}
+#uh{
+  display:none;
 }
