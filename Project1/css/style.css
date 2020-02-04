@@ -8,7 +8,7 @@ body {
   width: 200px;
   height: 200px;
   position: absolute;
-  z-index: -1;
+  z-index: 0;
 }
 .box{
   width: 800px;
@@ -17,6 +17,8 @@ body {
   border-color: black;
   border-style: dashed;
   margin:auto;
+  background-color: white;
+  z-index: -1;
 }
 
 .liver{
@@ -56,4 +58,6 @@ body {
   vertical-align: middle;
   color: black;
   border-radius: 30px;
+  border-color: black;
+  border-style: inset;
 }
