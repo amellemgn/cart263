@@ -11,23 +11,22 @@ to match your project! Write JavaScript to do amazing things below!
 Mostly combines code from various in-class exercises.
 
 *********************************************************************/
-//Ask pippin: resistance
-
-// Sabine questions: creating pull resistance: like slowing down frame rate?
-// v2 isn't working
-//random isn't ~feeling like super random : rule that if you get the same vulture twice your third has to be different
-// or just: variable that saves last vulture: if last vulture = new vulture randomize again
-
+// set message when click button
+// bounce effect... how to constrain
 //background color: one of those color animations
 let $vulture;
 let $liver;
 let $button;
+let animateLoop;
+let colors;
+let i = 0;
 
 const UPDATE_FREQUENCY = 20;
 const REVEAL_POSSIBILITY1 = 0.3;
 const REVEAL_POSSIBILITY2 = 0.6;
 const BIRD_SOUND = new Audio('assets/sounds/birds.mp3');
 const BITE_SOUND = new Audio('assets/sounds/bite.wav');
+const ANIMATION_TIME = 2000;
 let selectedVulture;
 
 
@@ -60,9 +59,9 @@ function setup() {
   })
   $button.one('mousedown', clickButton);
   $('.big').hover(function() {
-    $(this).css("width", 250 + "px");
-  }, function() {
     $(this).css("width", 200 + "px");
+  }, function() {
+    $(this).css("width", 150 + "px");
   });
   // if you were working like this, you'd have to specify parent/child instead of,say, specifying img
   $vulture.hover(function() {
@@ -71,7 +70,18 @@ function setup() {
     $(this).css("color", "yellow");
   });
 
-}
+  //code from: https://howilearnedrails.wordpress.com/2015/03/08/use-jquery-to-animate-background-color/
+  // and http://jsfiddle.net/bHEVr/
+  colors = ["green", "blue", "yellow"];
+  animateLoop = function(){
+    $('.background').animate({
+      backgroundColor: colors[i++ % colors.length] // find the remainder of
+    }, ANIMATION_TIME, function(){ animateLoop();
+    });
+  };
+  animateLoop();
+  }
+
 
 function startMusic() {
   BITE_SOUND.play();
