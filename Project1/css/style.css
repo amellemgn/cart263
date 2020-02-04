@@ -4,7 +4,7 @@ body {
 
 .body {
   /* // this is body class within prometheus class */
-  background-color: red;
+  /* background-color: red; */
   width: 200px;
   height: 200px;
   position: absolute;
@@ -15,15 +15,15 @@ body {
   height: 800px;
   border-width: 10px;
   border-color: black;
-  border-style: dashed;
+  border-style: inset;
   margin:auto;
-  background-color: white;
+  background-color: red;
   z-index: -1;
 }
 
 .liver{
   /* // liver class also within prometheus class */
-  background-color: blue;
+  background-color: white;
   width: 50px;
   height: 50px;
   position: absolute;
@@ -32,7 +32,7 @@ body {
 
 .nest img {
   /* // these are chick images */
-  width: 200px;
+  width: 150px;
   margin-top: 200px;
 }
 
@@ -41,6 +41,8 @@ body {
   float: left;
   width: 25%;
   padding: 5px;
+
+  vertical-align:
 }
 .nest:: after{
  content: "";
@@ -52,7 +54,7 @@ body {
   margin-left: 650px;
   width: 150px;
   height: 70px;
-  background-color: yellow;
+  background-color: white;
   font-size: 8px;
   text-align: center;
   vertical-align: middle;
