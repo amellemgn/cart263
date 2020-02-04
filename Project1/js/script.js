@@ -11,6 +11,12 @@ to match your project! Write JavaScript to do amazing things below!
 Mostly combines code from various in-class exercises.
 
 *********************************************************************/
+// TO DO:
+// free sound: screaming prometheus and chicken eating.
+// comments
+// 500 words
+// credit the sounds
+
 let $vulture;
 let $liver;
 let $button;
@@ -92,6 +98,10 @@ $('#title').on('click', function(){
     });
   };
   animateLoop();
+
+  $('.prometheus').hover(function() {
+  $( '.prometheus' ).effect( "shake" );
+});
   }
 
 
