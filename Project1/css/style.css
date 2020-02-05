@@ -1,37 +1,39 @@
 body {
-
+font-family: Arial;
 }
 .container{
   display: none;
 }
 .intro{
-  background-color: white;
+  background-color: red;
   width: 100%;
   height: 100%;
   /* height element is weird: when using iMac: it only fills up window height when using
   100vh, but on  my Macbook, it only works when using 100% */
 }
-.intro h1 {
+.intro h1{
+  font-size: 78px;
+  background-color: red;
+}
+.intro h2 {
   color: black;
   position: absolute;
-  margin-left: 50%;
-  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  text-align: justify;
 }
 .body {
-  /* // this is body class within prometheus class */
-  /* background-color: red; */
+  /*  this is body class within prometheus class */
   width: 200px;
   height: 200px;
   position: absolute;
   z-index: 0;
 }
-
 .background{
   width: 100%;
   height: 100%;
-  /*// from stack overflow: othewise didn't know how to get height to fill screen */
 }
-
 .box{
   width: 800px;
   height: 650px;
@@ -42,30 +44,25 @@ body {
   background-color: red;
   z-index: -1;
 }
-
 .liver{
   /* // liver class also within prometheus class */
   width: 50px;
   height: 50px;
   position: fixed;
   z-index: 1;
-  /* margin-left: 400px; */
   left: 400px;
 }
-
 .nest img {
   /* // these are chick images */
   width: 150px;
   margin-top: 450px;
   margin-left: 100px;
 }
-
 .vulture {
   /* // these vulture class divs hold chick images */
   float: left;
   width: 25%;
   padding: 5px;
-
 }
 .nest:: after{
  content: "";
@@ -78,7 +75,7 @@ body {
   margin-top: 10px;
   margin-left: auto;
   margin-right: auto;
-  background-color: white;
+  background-color: red;
   font-size: 16px;
   text-align: middle;
   vertical-align: middle;
@@ -87,19 +84,11 @@ body {
   border-color: black;
   border-style: dashed;
 }
-
 p {
   word-wrap: break-word;
-  margin-left: 20%;
-  margin-bottom: 15%;
+  margin-left: 15%;
+  margin-bottom: 25%;
 }
-
-#yes {
+#yes, #no, #uh {
 display: none;
-}
-#no{
-display: none;
-}
-#uh{
-  display:none;
 }
