@@ -79,7 +79,7 @@ $('#title').on('click', function(){
   })
   $button.on('mousedown', clickButton);
   $('.big').hover(function() {
-    $(this).css("width", 200 + "px");
+    $(this).css("width", 170 + "px");
   }, function() {
     $(this).css("width", 150 + "px");
   });
@@ -125,7 +125,6 @@ function createAnew() {
 
 
   let r = Math.random();
-  console.log(r);
   if (r < REVEAL_POSSIBILITY1) { // what gets passed through here
     selectedVulture = $('#v1');
   } else if ( r < REVEAL_POSSIBILITY2) {
