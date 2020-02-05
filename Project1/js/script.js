@@ -28,7 +28,8 @@ const UPDATE_FREQUENCY = 20;
 const REVEAL_POSSIBILITY1 = 0.3;
 const REVEAL_POSSIBILITY2 = 0.6;
 const BIRD_SOUND = new Audio('assets/sounds/birds.mp3');
-const BITE_SOUND = new Audio('assets/sounds/bark.wav');
+const BITE_SOUND = new Audio('assets/sounds/squelch.wav');
+const CHIPTUNE_SOUND = new Audio('assets/sounds/background.wav');
 const ANIMATION_TIME = 2000;
 let selectedVulture;
 let selectedQuery;
@@ -61,6 +62,7 @@ $('#title').on('click', function(){
     drop: function(event, ui) {
       ui.draggable.remove();
       createAnew();
+      BITE_SOUND.volume = 1.0;
       BITE_SOUND.play();
     }
 
@@ -106,8 +108,12 @@ $('#title').on('click', function(){
 
 
 function startMusic() {
+  BIRD_SOUND.volume = 0.1;
    BIRD_SOUND.loop = true;
    BIRD_SOUND.play();
+   CHIPTUNE_SOUND.volume = 0.1;
+   CHIPTUNE_SOUND.loop=true;
+   CHIPTUNE_SOUND.play();
 }
 
 function createAnew() {
