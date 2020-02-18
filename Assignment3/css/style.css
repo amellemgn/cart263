@@ -1,3 +1,18 @@
 body {
+width: 50%;
+margin-left: auto;
+margin-right: auto;
+color: black;
+background-color: yellow;
 
+}
+
+.score{
+font-family: arial;
+font-size: 500px;
+}
+
+.guess{
+border-style: inset;
+border-color: black;
 }

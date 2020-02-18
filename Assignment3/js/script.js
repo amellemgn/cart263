@@ -2,15 +2,21 @@
 
 /********************************************************************
 
-Title of Project
-Author Name
+Assignment 3
+Amelle Margaron
 
-This is a template. Fill in the title, author, and this description
-to match your project! Write JavaScript to do amazing things below!
+Modified Slamina.
+
+Uses:
+ResponsiveVoice
+https://responsivevoice.org/
+Animal names from:
+https://github.com/dariusk/corpora/blob/master/data/animals/common.json
 
 *********************************************************************/
-
+// Call setup when page loads
 $(document).ready(setup);
+// Relevant variables + array of animal names we will use
 const NUM_OPTIONS = 3;
 let answers = [];
 let correctAnimal;
@@ -153,25 +159,51 @@ let animals = [
 let $command;
 let score = 0;
 
+//setup()
+//
+//start a new round and setup annyang
 function setup() {
-  // addButton("lamb");
-  // addButton("llama");
   newRound();
   if (annyang) {
+    // set up voice commands including different versions of same phrase
     var command = {
       "*Say it again": checkRepeat,
       "*I give up": checkDefeat,
       "*animalSpeech": handleSpeech,
-      "it's *animalSpeech": handleSpeech
+      "I think it's *animalSpeech": handleSpeech,
+      "I think it is *animalSpeech": handleSpeech,
     };
-
     annyang.addCommands(command);
+    // start annyang recognition
     annyang.start();
   }
-
-updateScore();
+// add to score
+setInterval(updateScore, 100);
 }
 
+//newRound()
+//
+//create button interface and randomize three chosen animals from list, incl. correct animal which will be said out loud by annyang
+function newRound() {
+  answers = [];
+  // randomize three items from array
+  for (let i = 0; i < NUM_OPTIONS; i++) {
+    let r = animals[Math.floor(Math.random() * animals.length)];
+    // call addButton functions to make three items buttons
+    addButton(r);
+    // add three animal items to answers array
+    answers.push(r);
+  }
+  // randomize correct animal from three animal choices
+  correctAnimal = answers[Math.floor(Math.random() * answers.length)];
+  // say the name of correct animal backwards
+  sayBackwards(correctAnimal);
+}
+
+// addButton()
+//
+//create a button div with  with information passed from newRound()
+// if clicked, call handleGuess()
 function addButton(label) {
   let $div = $('<div></div>');
   $div.addClass("guess");
@@ -181,21 +213,14 @@ function addButton(label) {
   $div.appendTo('body');
 }
 
-function newRound() {
-  answers = [];
-  for (let i = 0; i < NUM_OPTIONS; i++) {
-    let r = animals[Math.floor(Math.random() * animals.length)];
-    addButton(r);
-    answers.push(r);
-  }
-  correctAnimal = answers[Math.floor(Math.random() * answers.length)];
-  sayBackwards(correctAnimal);
-}
-
+//handleGuess()
+//
+// compare the button's text to the correct animal and add to score if they are the same, reset everything
+//otherwise shake the buttons and repeat the correct answer
 function handleGuess() {
   console.log($(this).text(), correctAnimal);
   if ($(this).text() === correctAnimal) {
-    console.log(score);
+    // console.log(score);
     score +=1;
     $('.guess').remove();
     setTimeout(newRound, 500);
@@ -205,7 +230,9 @@ function handleGuess() {
     sayBackwards(correctAnimal);
   }
 }
-
+// sayBackwards()
+//
+//set random pitch and rate, reassemble the text backwards and feed that information to the annyang voice
 function sayBackwards(text) {
   let rateR, pitchR = Math.random();
   let backwardsText = text.split('').reverse().join('');
@@ -216,27 +243,33 @@ function sayBackwards(text) {
   responsiveVoice.speak(backwardsText, "UK English Female", options);
 }
 
+//checkRepeat
+//
+//called by user: repeats correct answer
 function checkRepeat() {
   sayBackwards(correctAnimal);
 }
 
+//checkDefeat()
+//
+//called by user: giving up means restarting from 0
 function checkDefeat() {
   score= 0;
   $('.guess').effect('shake');
   $('.guess').remove();
   newRound();
 }
-
+//handleSpeech()
+// compare the spoken label to the correct animal and add to score if they are the same, reset everything
+//otherwise calls user a loser and  and repeat the correct answer
 function handleSpeech(phrase) {
   if (phrase === correctAnimal) {
     $('.guess').remove();
     score +=1;
-    updateScore();
     setTimeout(newRound, 500);
   } else {
     $('.guess').effect('shake');
     score =0;
-    updateScore();
     responsiveVoice.speak("haha loser", "UK English Female");
     sayBackwards(correctAnimal);
   }
