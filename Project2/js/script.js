@@ -8,11 +8,14 @@ Amelle Margaron
 Description goes here.
 Song: https://www.youtube.com/watch?v=ygqFqRM-syc
 
+https://3dtransforms.desandro.com/carousel
 *********************************************************************/
 
 // Declare all game variables
 const backgroundMusic = new Audio("assets/sounds/backgroundMusic.mp3");
 let $gif;
+let rotation = 0;
+let rotationSpeed = 100;
 // Call setup at page load
 $(document).ready(setup);
 
@@ -33,13 +36,22 @@ function setup() {
            var src = $(this).attr("src");
            $(this).attr("src", src.replace(/\.gif$/i, ".png"));
          });
-  $gif.on('click', gifClicked);
+  $gif.on('click', gifClicked); //event listener tied to 'this', which then transmits to gifclickd but not any following functions
   callAnnyang();
+  // setInterval(updateRotation, rotationSpeed);
 }
+
+// function updateRotation(){
+//   // $('.row').css("transform", "rotateY(" + rotation + "deg)");
+//   // rotation+=1;
+//   $('.rowobject').css("transform", "rotateY(" + rotation + "deg)");
+//   rotation+=1;
+// }
 
 function gifClicked() {
   console.log("clicked!!");
-  resizeGif();
+  console.log(this);
+  resizeGif(this);
   automatedSpeech();
 }
 
@@ -56,10 +68,12 @@ function callAnnyang() {
   }
 }
 
-function resizeGif(){
+function resizeGif(e){
   console.log("gif resized");
-  $(this).attr("width", "200px");
-  $(this).attr("z-index", "2");
+  console.log(e);
+  $(e).css("width", "800px");
+  $(e).css("transform","rotateY(0deg)");
+
 }
 
 function automatedSpeech(){
@@ -75,5 +89,5 @@ function automatedSpeech(){
 function closeGif(){
   console.log("gif back to normal");
   $(this).attr("width", "100px");
-  $(this).attr("z-index", "0");
+
 }
