@@ -18,6 +18,8 @@ let angle = 0;
 let $chosenGif;
 let randomizedSpeech;
 let lastRandomizedSpeech;
+let mouseX =0;
+let mouseY = 0;
 
 $(document).ready(setup);
 
@@ -39,22 +41,29 @@ function setup() {
            var src = $(this).attr("src");
            $(this).attr("src", src.replace(/\.gif$/i, ".png"));
          });
-  setInterval(updateCarousel, 800);
+  setInterval(updateCarousel, 100);
+  setInterval(gaugeMousePosition, 100);
+  $(document).on('mousemove', updateMouse);
+
   $gif.on('click', gifClicked);
   callAnnyang();
 }
+function updateMouse(e){
+mouseX = e.pageX;
+mouseY = e.pageY;
+}
 
 function updateCarousel() {
-  $carousel.on('mousemove', gaugeMousePosition);
   $carousel.css("transform", 'translateZ(-288px) rotateY(' + angle + 'deg)');
 }
 
 function gaugeMousePosition(e){
-  if(e.pageX < 100){
-    angle += 0.2;
+  console.log(mouseX);
+  if(mouseX < 100){
+    angle += 2;
   }
   else{
-      angle -= 0.2;
+      angle -= 2;
   }
 }
 
@@ -62,10 +71,10 @@ function callAnnyang() {
   if (annyang) {
     console.log("annyang");
     var command = {
-      "*Me": closeGif,
-      "*I am the problem": closeGif,
-      "*Yes": closeGif,
-      "*No": closeGif,
+      "Me": closeGif,
+      "I am the *problem": closeGif,
+      "yes": closeGif,
+      "no": closeGif,
     };
     annyang.addCommands(command);
     annyang.start();
@@ -82,9 +91,10 @@ function gifClicked() {
 function largeGifAppears(e){
 console.log("large gif appears");
 console.log(e.src);
-$chosenGif.attr("src", e.src); // can i do this
-// can also do like $chosenGif.show();
-$chosenGif.css("display", "in-line");
+let src = $(this).attr('src');
+$chosenGif.attr("src", src); // can i do this
+$chosenGif.show(); // efffects
+// $chosenGif.css("display", "in-line");
 }
 
 function automatedSpeech(){
@@ -104,22 +114,22 @@ function selectSpeech(){
   if (r < 0.2){
     randomizedSpeech = "do you not think this could be qualified as a matter of perception";
   }
-  if ( 0.2< r < 0.4){
+  else if ( r < 0.4){
     randomizedSpeech = "do the children at least have the excuse of being gullible";
   }
-  if ( 0.4< r < 0.6){
+  else if (  r < 0.6){
     randomizedSpeech = "in the war for attention is this not a just cause";
   }
-  if ( 0.6< r < 0.8){
-    randomizedSpeech = "are you aware that indeed kids yt ediitng jobs pay better than average";
+  else if ( r < 0.8){
+    randomizedSpeech = "is your fear of the mouse cynical";
   }
-  if (r >0.8){
+  else {
     randomizedSpeech = "are you aware or are you sick";
   }
 }
 
 function closeGif(){
   console.log("close gif");
-  // $chosenGif.hide();
+   $chosenGif.hide();
   // in this one .. i dont need to be using e or this right?
 }
