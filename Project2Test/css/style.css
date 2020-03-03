@@ -3,6 +3,13 @@ body {
   font-family: sans-serif;
 
 }
+.intro{
+width: 50vw;
+height: 50vh;
+}
+.container{
+  display: none;
+}
 .background{
   width: 100vw;
   height: 100vh;

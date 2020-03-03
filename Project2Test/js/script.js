@@ -27,18 +27,28 @@ const ANIMATION_TIME = 500;
 let $commentTrigger;
 let selectedComment;
 let commentArray;
-let closeGifCounter= 0;
+let closeGifCounter = 0;
+let menuArray;
+let menuArrayIndex = 0;
 
 $(document).ready(setup);
 
 function setup() {
+  $(document).one('mousedown', startMusic);
+  callAnnyang();
+
+
   //Set the dialog widgets not to open upon initialization
- $('#comment1, #comment2, #comment3').dialog(
-   {autoOpen: false},
-   {position: {my: "left top", at:"center", of: "window"}}
- );
- // Math.random()*($(document).width())
- $(document).one('mousedown', startMusic);
+  $('#comment1, #comment2, #comment3').dialog(
+    {
+    autoOpen: false
+  });
+  $('#comment1, #comment2, #comment3').parent().offset({
+    top: Math.random() * ($(window).height() - $('#comment1, #comment2, #comment3').parent().height()),
+    left: Math.random() * ($(window).width() - $('#comment1, #comment2, #comment3').parent().width())
+  });
+  // Math.random()*($(document).width())
+
 
   $chosenGif = $('.chosenGif');
   $carousel = $('.carousel');
@@ -68,7 +78,7 @@ function setup() {
 
   $gif.on('click', gifClicked);
   $commentTrigger.on('click', commentTriggerClicked);
-  callAnnyang();
+
   // Background animation
   // Using remainder formula, cycle through array of background colors. Use animate effect to ensure smooth transition.
   // Code from - http://jsfiddle.net/bHEVr/
@@ -83,7 +93,26 @@ function setup() {
   animateLoop();
 }
 
-function startMusic(){
+function cycleMenuArray() {
+  menuArray = ["instruction one say ok", "instruction two say ok", "instruction three say ok"];
+
+  let newDiv = $('<div>' + menuArray[menuArrayIndex] + '</div>');
+  newDiv.appendTo('.intro');
+  menuArrayIndex += 1;
+  if (menuArrayIndex >= menuArray.length) {
+    setTimeout(loadGame, 1000);
+
+
+  }
+
+}
+
+function loadGame() {
+  $('.intro').hide();
+  $('.container').fadeIn(500);
+}
+
+function startMusic() {
   backgroundMusic.loop = true;
   backgroundMusic.play();
   backgroundMusic.volume = 0.2;
@@ -110,8 +139,9 @@ function callAnnyang() {
   if (annyang) {
     console.log("annyang");
     var command = {
-      "Repeat": repeatSpeech,
-      "Me": closeGif,
+      "ok": cycleMenuArray,
+      "repeat": repeatSpeech,
+      "me": closeGif,
       "I am the *problem": closeGif,
       "yes": closeGif,
       "no": closeGif,
@@ -131,7 +161,7 @@ function gifClicked() {
 function largeGifAppears(e) {
   console.log("large gif appears");
   console.log(e.src);
-  let src = $(this).attr('src');
+  let src = $(e).attr('src');
   $chosenGif.attr("src", src); // can i do this
   $chosenGif.show();
   // efffects
@@ -149,7 +179,7 @@ function automatedSpeech() {
   responsiveVoice.speak(randomizedSpeech, "UK English Male", options)
 }
 
-function repeatSpeech(){
+function repeatSpeech() {
   let randomPitch, randomRate = Math.random();
   let options = {
     rate: randomRate,
@@ -179,7 +209,7 @@ function closeGif() {
   console.log("close gif");
   $chosenGif.hide();
   console.log(closeGifCounter);
-  closeGifCounter +=1;
+  closeGifCounter += 1;
   // make some cute draggable things appear
 }
 
