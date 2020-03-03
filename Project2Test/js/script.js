@@ -20,6 +20,10 @@ let randomizedSpeech;
 let lastRandomizedSpeech;
 let mouseX =0;
 let mouseY = 0;
+let colors;
+let animateLoop;
+let i =0;
+const ANIMATION_TIME = 500;
 
 $(document).ready(setup);
 
@@ -47,6 +51,18 @@ function setup() {
 
   $gif.on('click', gifClicked);
   callAnnyang();
+  // Background animation
+   // Using remainder formula, cycle through array of background colors. Use animate effect to ensure smooth transition.
+   // Code from - http://jsfiddle.net/bHEVr/
+   colors = ["#FDDFDF", "#FCF7DE", "#DEFDE0", "#DEF3FD", "#F0DEFD"];
+   animateLoop = function() {
+     $('.background').animate({
+       backgroundColor: colors[i++ % colors.length] // find the remainder of
+     }, ANIMATION_TIME, function() {
+       animateLoop();
+     });
+   };
+   animateLoop();
 }
 function updateMouse(e){
 mouseX = e.pageX;
@@ -58,7 +74,6 @@ function updateCarousel() {
 }
 
 function gaugeMousePosition(e){
-  console.log(mouseX);
   if(mouseX < 450){
     angle += 2;
   }
@@ -93,7 +108,8 @@ console.log("large gif appears");
 console.log(e.src);
 let src = $(this).attr('src');
 $chosenGif.attr("src", src); // can i do this
-$chosenGif.show(); // efffects
+$chosenGif.show();
+// efffects
 // $chosenGif.css("display", "in-line");
 }
 
@@ -125,6 +141,7 @@ function selectSpeech(){
   }
   else {
     randomizedSpeech = "are you aware or are you sick";
+    // say booger three times
   }
 }
 

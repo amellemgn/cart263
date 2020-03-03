@@ -2,7 +2,13 @@
 body {
   font-family: sans-serif;
 }
+.background{
+  /* width: 600px;
+  height: 600px; */
+}
+.chosenGif{
 
+}
 .scene {
   /* border: 1px solid #CCC; */
   margin: 40px 0;
