@@ -59,7 +59,7 @@ function updateCarousel() {
 
 function gaugeMousePosition(e){
   console.log(mouseX);
-  if(mouseX < 100){
+  if(mouseX < 450){
     angle += 2;
   }
   else{
