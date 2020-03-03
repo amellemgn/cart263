@@ -1,14 +1,13 @@
 
 body {
   font-family: sans-serif;
-}
-.background{
-  /* width: 600px;
-  height: 600px; */
-}
-.chosenGif{
 
 }
+.background{
+  width: 100vw;
+  height: 100vh;
+}
+
 .scene {
   /* border: 1px solid #CCC; */
   margin: 40px 0;
@@ -83,8 +82,18 @@ body {
   display: none;
   position: absolute;
   z-index: 3;
+  margin-left: 20vh;
+  width: 600px;
 }
 
+#comment1, #comment2, #comment3, #comment4{
+  display: none;
+}
+.commentTrigger{
+  margin-top: 50vh;
+  margin-left: 50vh;
+
+}
 /* .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
