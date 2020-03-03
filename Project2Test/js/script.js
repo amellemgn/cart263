@@ -43,10 +43,6 @@ function setup() {
     {
     autoOpen: false
   });
-  $('#comment1, #comment2, #comment3').parent().offset({
-    top: Math.random() * ($(window).height() - $('#comment1, #comment2, #comment3').parent().height()),
-    left: Math.random() * ($(window).width() - $('#comment1, #comment2, #comment3').parent().width())
-  });
   // Math.random()*($(document).width())
 
 
@@ -221,4 +217,9 @@ function callComment() {
   commentArray = [$('#comment1'), $('#comment2'), $('#comment3'), $('#comment4')];
   selectedComment = commentArray[Math.floor(Math.random() * commentArray.length)];
   selectedComment.dialog('open');
+
+  $('#comment1, #comment2, #comment3').parent().offset({
+    top: Math.random() * ($(window).height() - $('#comment1, #comment2, #comment3').parent().height()),
+    left: Math.random() * ($(window).width() - $('#comment1, #comment2, #comment3').parent().width())
+  });
 }
