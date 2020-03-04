@@ -45,13 +45,13 @@ function setup() {
   $(document).one('mousedown', startMusic);
   callAnnyang();
   //Set the dialog widgets not to open upon initialization
-    $comment = $('.comment');
+  $comment = $('.comment');
   $comment.dialog({
     autoOpen: false
   });
   $chosenGif = $('.chosenGif');
   $carousel = $('.carousel');
-// Make sure hovering over comment trigger 'button' is visible
+  // Make sure hovering over comment trigger 'button' is visible
   $commentTrigger = $('.commentTrigger');
   $commentTrigger.hover(
     function() {
@@ -116,7 +116,7 @@ function startMusic() {
 // Background animation: Using remainder formula, cycle through array of background colors.
 //  Use animate effect to ensure smooth transition.
 // Code inspired by last project.
-function animateBackground(){
+function animateBackground() {
   colors = ["#FDDFDF", "#FCF7DE", "#DEFDE0", "#DEF3FD", "#F0DEFD"];
   animateLoop = function() {
     $('.background').animate({

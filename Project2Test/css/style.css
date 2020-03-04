@@ -1,19 +1,20 @@
-
 body {
   font-family: sans-serif;
   text-align: center;
   position: absolute;
   line-height: 2;
+}
 
+.intro {
+  width: 50vw;
+  height: 50vh;
 }
-.intro{
-width: 50vw;
-height: 50vh;
-}
-.container{
+
+.container {
   display: none;
 }
-.background{
+
+.background {
   width: 100vw;
   height: 100vh;
 }
@@ -96,14 +97,15 @@ height: 50vh;
   width: 600px;
 }
 
-#comment1, #comment2, #comment3, #comment4{
+#comment1, #comment2, #comment3, #comment4 {
   display: none;
 }
-.commentTrigger{
+
+.commentTrigger {
   margin-top: 50vh;
   margin-left: 50vh;
-
 }
+
 /* .carousel__cell:nth-child(9n+1) { background: hsla(  0, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+2) { background: hsla( 40, 100%, 50%, 0.8); }
 .carousel__cell:nth-child(9n+3) { background: hsla( 80, 100%, 50%, 0.8); }
