@@ -159,6 +159,7 @@ function updateMouse(e) {
 //gaugeMousePosition
 //
 //check whether mouse is to the left or right of carousel
+function gaugeMousePosition(e) {
   if (mouseX < 450) {
     angle += 2;
   } else {
@@ -168,7 +169,7 @@ function updateMouse(e) {
 //updateCarousel
 //
 // move the carousel left or right accordingly to where the mouse is
-function gaugeMousePosition(e) {
+
 function updateCarousel() {
   $carousel.css("transform", 'translateZ(-288px) rotateY(' + angle + 'deg)');
 }
