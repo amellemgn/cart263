@@ -40,8 +40,7 @@ function setup() {
 
   $comment = $('.comment');
   //Set the dialog widgets not to open upon initialization
-  $comment.dialog(
-    {
+  $comment.dialog({
     autoOpen: false
   });
   // Math.random()*($(document).width())
@@ -188,13 +187,23 @@ function repeatSpeech() {
 function selectSpeech() {
   let r = Math.random();
   console.log(r);
-  if (r < 0.2) {
+  if (r < 0.1) {
     randomizedSpeech = "Do you think that the way you fear is rational?";
-  } else if (r < 0.4) {
+  } else if (r < 0.2) {
     randomizedSpeech = "Do the children not have any excuse for being gullible?";
-  } else if (r < 0.6) {
+  } else if (r < 0.3) {
     randomizedSpeech = "In the war for attention are we all not just doing our best?";
+  } else if (r < 0.4) {
+    randomizedSpeech = "Are you perhaps unable to sift through your nostalgia?";
+  } else if (r < 0.5) {
+    randomizedSpeech = "Can you remember the last time you felt awake?";
+  } else if (r < 0.6) {
+    randomizedSpeech = "Is it already too late?";
+  } else if (r < 0.7) {
+    randomizedSpeech = "Would you gently place your hand on your child's shoulder and tell them to stop pretending?";
   } else if (r < 0.8) {
+    randomizedSpeech = "Are you afraid of The Mouse?";
+  } else if (r < 0.9) {
     randomizedSpeech = "Are you afraid of The Mouse?";
   } else {
     randomizedSpeech = "";
