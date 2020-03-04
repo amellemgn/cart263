@@ -30,6 +30,7 @@ let commentArray;
 let closeGifCounter = 0;
 let menuArray;
 let menuArrayIndex = 0;
+let $comment;
 
 $(document).ready(setup);
 
@@ -37,9 +38,9 @@ function setup() {
   $(document).one('mousedown', startMusic);
   callAnnyang();
 
-
+  $comment = $('.comment');
   //Set the dialog widgets not to open upon initialization
-  $('#comment1, #comment2, #comment3').dialog(
+  $comment.dialog(
     {
     autoOpen: false
   });
@@ -90,7 +91,7 @@ function setup() {
 }
 
 function cycleMenuArray() {
-  menuArray = ["instruction one say ok", "instruction two say ok", "instruction three say ok"];
+  menuArray = ["1- Cycle through these videos with your mouse! Ok? (Please answer)", "2- Click on the video if it seems interesting :o Ok? (Please answer)?", "3-If you don't understand, say 'repeat'! Ok? "];
 
   let newDiv = $('<div>' + menuArray[menuArrayIndex] + '</div>');
   newDiv.appendTo('.intro');
@@ -188,15 +189,15 @@ function selectSpeech() {
   let r = Math.random();
   console.log(r);
   if (r < 0.2) {
-    randomizedSpeech = "do you not think this could be qualified as a matter of perception";
+    randomizedSpeech = "Do you think that the way you fear is rational?";
   } else if (r < 0.4) {
-    randomizedSpeech = "do the children at least have the excuse of being gullible";
+    randomizedSpeech = "Do the children not have any excuse for being gullible?";
   } else if (r < 0.6) {
-    randomizedSpeech = "in the war for attention is this not a just cause";
+    randomizedSpeech = "In the war for attention are we all not just doing our best?";
   } else if (r < 0.8) {
-    randomizedSpeech = "is your fear of the mouse cynical";
+    randomizedSpeech = "Are you afraid of The Mouse?";
   } else {
-    randomizedSpeech = "are you aware or are you sick";
+    randomizedSpeech = "";
     // say booger three times
   }
 }
@@ -214,12 +215,12 @@ function commentTriggerClicked() {
 }
 
 function callComment() {
-  commentArray = [$('#comment1'), $('#comment2'), $('#comment3'), $('#comment4')];
+  commentArray = [$('#comment1'), $('#comment2'), $('#comment3'), $('#comment4'), $('#comment5'), $('#comment6'), $('#comment7'), $('#comment8'), $('#comment9'), $('#comment10'), $('#comment11'), $('#comment12')];
   selectedComment = commentArray[Math.floor(Math.random() * commentArray.length)];
   selectedComment.dialog('open');
 
-  $('#comment1, #comment2, #comment3').parent().offset({
-    top: Math.random() * ($(window).height() - $('#comment1, #comment2, #comment3').parent().height()),
-    left: Math.random() * ($(window).width() - $('#comment1, #comment2, #comment3').parent().width())
+  $comment.parent().offset({
+    top: Math.random() * ($(window).height() - $comment.parent().height()),
+    left: Math.random() * ($(window).width() - $comment.parent().width())
   });
 }
