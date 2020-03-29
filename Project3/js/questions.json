@@ -1,0 +1,18 @@
+
+{
+  "description": "questions and their associated information",
+  "question1":{
+    "phrase" : "were you in a forest or a mountain?",
+    "option1": "a mountain",
+    "option2": "a forest",
+    "option1Image": "https://en.wikipedia.org/wiki/File:Aries.svg",
+    "option2Image": "https://en.wikipedia.org/wiki/File:Taurus.svg"
+  }
+  "question2":{
+    "phrase" : "was it raining or sunny??",
+    "option1": "raining",
+    "option2": "sunny",
+    "option1Image": "https://en.wikipedia.org/wiki/File:Virgo.svg",
+    "option2Image": "https://en.wikipedia.org/wiki/File:Libra.svg"
+  }
+}

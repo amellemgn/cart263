@@ -1,0 +1,12 @@
+body {
+font-family: Courier;
+font-style: italic;
+/* note: the difference between oblique (same font at an angle) and italic (not the same characters, but complementary) */
+}
+
+.postcard{
+  border-style: double;
+  width: 600px;
+  height: 600px;
+  border-width:medium;
+}
