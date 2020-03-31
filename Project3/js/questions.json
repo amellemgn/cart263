@@ -4,15 +4,15 @@
     "phrase": "were you in a forest or a mountain?",
     "option1": "a mountain",
     "option2": "a forest",
-    "option1Image": "https://en.wikipedia.org/wiki/File:Aries.svg",
+    "option1Image": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Aries.svg/372px-Aries.svg.png",
     "option2Image": "https://en.wikipedia.org/wiki/File:Taurus.svg"
-  } {
+  }, {
     "phrase": "was it raining or sunny?",
     "option1": "raining",
     "option2": "sunny",
     "option1Image": "https://en.wikipedia.org/wiki/File:Virgo.svg",
     "option2Image": "https://en.wikipedia.org/wiki/File:Libra.svg"
-  } {
+  } ,{
     "phrase": "do you miss who you used to be back then?",
     "option1": "yes",
     "option2": "no",
