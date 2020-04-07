@@ -30,8 +30,8 @@ function questionsLoaded(data) {
 
 function askQuestion(questions) {
   let currentQuestion = questions.questions[currentQuestionIndex];
-
   responsiveVoice.speak(currentQuestion.phrase, "UK English Female");
+  displayQuestion(currentQuestion);
   if (annyang) {
     // set up voice commands (no voice commands yet?)
     var command = {};
@@ -40,8 +40,24 @@ function askQuestion(questions) {
     annyang.addCommands(command);
     annyang.start();
   }
+  currentQuestionIndex +=1; // here? should there be a return, no right? bc they just end and come back to main function?
+}
+function displayQuestion(currentQuestion){ // drawn from w3 schools
+  document.getElementById("dialogueBox").innerHTML = ""; //clearing the dialogue box
+  let i = 0;
+  let text = currentQuestion.phrase; // its already a string right?
+  console.log(text);
+  let speed = 50;
+  function typewriter(){
+  if (i <text.length){
+    document.getElementById("dialogueBox").innerHTML += text.charAt(i);
+    console.log(text.charAt(i));
+    i++
+    setTimeout(typewriter, speed);
+  }
 }
 
+}
 function displayOption1(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
   // // set $appendedImage's CSS by pulling from the JSON data
