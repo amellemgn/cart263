@@ -44,7 +44,6 @@ function askQuestion(questions) {
     annyang.start();
     console.log(currentQuestion.option1);
     console.log(currentQuestion.option2);
-
   }
 }
 
@@ -81,7 +80,7 @@ function displayOption1() {
       queue: false,
       duration: 'slow'
     });
-  if (currentQuestion.evilEyeCheck = 'true') {
+  if (currentQuestion.evilEyeCheck !== null) {
     activateEvilEye();
   }
   setTimeout(recallAskQuestion, 2000);
