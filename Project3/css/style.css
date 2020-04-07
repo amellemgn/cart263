@@ -6,6 +6,7 @@ body {
   /* note: the difference between oblique (same font at an angle) and italic (not the same characters, but complementary) */
   border-width: medium;
   border-style: double;
+  position: relative;
 }
 
 .postcard {
@@ -15,7 +16,7 @@ body {
   border-width: medium;
 }
 .immediatelyAvailable{
-display: flex;
+ display: flex;
 }
 
 .color {
@@ -31,6 +32,7 @@ display: flex;
   flex:5%;
   float: left;
 }
+
 #colorPicker:hover{
   background-color: white;
 }
@@ -60,9 +62,12 @@ display: flex;
 }
 
 #dialogueBox {
-  width: 400px;
-  height:200px;
-  border-width:thick;
+  width: 500px;
+  height:100px;
+  border-width: medium;
   border-style: double;
   position: relative;
+  left: 50px;
+  bottom: 100px;
+  text-align: center;
 }
