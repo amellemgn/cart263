@@ -37,18 +37,18 @@ function askQuestion(questions) {
     var command = {};
     command[currentQuestion.option1] = displayOption1(currentQuestion);
     command[currentQuestion.option2] = displayOption2(currentQuestion);
-
     annyang.addCommands(command);
     annyang.start();
   }
 }
 
-function displayOption1() {
+function displayOption1(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
+  // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
 }
 
-function displayOption2() {
+function displayOption2(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
   $appendedImage.appendTo('.postcard');
 }

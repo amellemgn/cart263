@@ -1,10 +1,15 @@
 body {
+width: 100vh;
+height: 90vh;
 font-family: Courier;
 font-style: italic;
 /* note: the difference between oblique (same font at an angle) and italic (not the same characters, but complementary) */
+border-width:medium;
+border-style: double;
 }
 
 .postcard{
+  
   border-style: double;
   width: 600px;
   height: 600px;
