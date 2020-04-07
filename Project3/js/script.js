@@ -44,25 +44,28 @@ function askQuestion(questions) {
 
 function displayOption1(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
-  $appendedImage.css('display', 'none');
-  // set $appendedImage's CSS by pulling from the JSON data
+  // // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
-  $appendedImage.fadeIn("slow");
-  $appendedImage.animate({
-    'display': 'inline'
-  }, 2000);
-
+  $appendedImage
+  .css('opacity', 0)
+  .slideDown('300000')
+  .animate(
+    { opacity: 1 },
+    { queue: false, duration: 'slow' }
+  );
 }
 
 function displayOption2(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
-  $appendedImage.css('display', 'none');
-  // set $appendedImage's CSS by pulling from the JSON data
+  // // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
-  $appendedImage.fadeIn("slow");
-  $appendedImage.animate({
-    'display': 'inline'
-  }, 2000);
+  $appendedImage
+  .css('opacity', 0)
+  .slideDown('slow')
+  .animate(
+    { opacity: 1 },
+    { queue: false, duration: 'slow' }
+  );
 }
 
 function questionsNotLoaded(jqxhr, textStatus, error) {
