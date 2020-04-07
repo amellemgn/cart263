@@ -13,6 +13,9 @@ recreate the scene before your very eyes.
 // declare project variables (avoiding global variables is good practice)
 let questions;
 let currentQuestionIndex = 0;
+let currentQuestion;
+let figureImage = $(`<img src ="assets/images/figure.png">`);
+let width = 50;
 
 $(document).ready(setup);
 
@@ -29,61 +32,103 @@ function questionsLoaded(data) {
 }
 
 function askQuestion(questions) {
-  let currentQuestion = questions.questions[currentQuestionIndex];
+  currentQuestion = questions.questions[currentQuestionIndex];
   responsiveVoice.speak(currentQuestion.phrase, "UK English Female");
   displayQuestion(currentQuestion);
   if (annyang) {
     // set up voice commands (no voice commands yet?)
     var command = {};
-    command[currentQuestion.option1] = displayOption1(currentQuestion);
-    command[currentQuestion.option2] = displayOption2(currentQuestion);
+    command[currentQuestion.option1] = displayOption1;
+    command[currentQuestion.option2] = displayOption2;
     annyang.addCommands(command);
     annyang.start();
+    console.log(currentQuestion.option1);
+    console.log(currentQuestion.option2);
+
   }
-  currentQuestionIndex +=1; // here? should there be a return, no right? bc they just end and come back to main function?
 }
-function displayQuestion(currentQuestion){ // drawn from w3 schools
+
+function displayQuestion(currentQuestion) { // drawn from w3 schools
   document.getElementById("dialogueBox").innerHTML = ""; //clearing the dialogue box
   let i = 0;
   let text = currentQuestion.phrase; // its already a string right?
   console.log(text);
   let speed = 50;
-  function typewriter(){
-  if (i <text.length){
-    document.getElementById("dialogueBox").innerHTML += text.charAt(i);
-    console.log(text.charAt(i));
-    i++
-    setTimeout(typewriter, speed);
+  typewriter();
+
+  function typewriter() {
+    if (i < text.length) {
+      document.getElementById("dialogueBox").innerHTML += text.charAt(i);
+      i++
+      setTimeout(typewriter, speed);
+    }
   }
-}
 
 }
-function displayOption1(currentQuestion) {
+
+function displayOption1() {
+  console.log("display1");
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
   // // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
+  $appendedImage.css('position', 'absolute');
   $appendedImage
-  .css('opacity', 0)
-  .slideDown('300000')
-  .animate(
-    { opacity: 1 },
-    { queue: false, duration: 'slow' }
-  );
+    .css('opacity', 0)
+    .slideDown('300000')
+    .animate({
+      opacity: 1
+    }, {
+      queue: false,
+      duration: 'slow'
+    });
+  if (currentQuestion.evilEyeCheck = 'true') {
+    activateEvilEye();
+  }
+  setTimeout(recallAskQuestion, 2000);
 }
 
-function displayOption2(currentQuestion) {
+function displayOption2() {
+  console.log("display2");
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
   // // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
+  $appendedImage.css('position', 'absolute');
   $appendedImage
-  .css('opacity', 0)
-  .slideDown('slow')
-  .animate(
-    { opacity: 1 },
-    { queue: false, duration: 'slow' }
-  );
+    .css('opacity', 0)
+    .slideDown('slow')
+    .animate({
+      opacity: 1
+    }, {
+      queue: false,
+      duration: 'slow'
+    });
+  setTimeout(recallAskQuestion, 2000);
 }
+
+function recallAskQuestion() {
+  currentQuestionIndex += 1;
+  askQuestion(questions);
+}
+
 
 function questionsNotLoaded(jqxhr, textStatus, error) {
   console.error(error);
+}
+
+function activateEvilEye() {
+  $('#evilEye').css('display', "inline");
+  $('#evilEye').on('click', displayEvilEyeFigure);
+}
+
+function displayEvilEyeFigure() {
+  // figureImage = $(`<img src ="assets/images/figure.png">`);
+  figureImage.appendTo('.postcard');
+  setInterval(changeFigureSize, 3000);
+
+  function changeFigureSize() {
+    console.log(width, figureImage);
+    let figureWidth = figureImage.style.width;
+    figureWidth += width + 'px';
+
+  }
 }

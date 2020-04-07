@@ -17,7 +17,7 @@
     "option1ZIndex": "0",
     "option2ZIndex": "0"
   } ,{
-    "phrase": "do you accept the acknowledgement of the large face in the clouds?",
+    "phrase": "do you want the acknowledgement of the large face in the clouds?",
     "option1": "yes",
     "option2": "no",
     "option1Image": "assets/images/face.png",
@@ -25,18 +25,21 @@
     "option1ZIndex": "1",
     "option2ZIndex": "1"
   },{
-    "phrase": "has a tear been shed in this place?",
-    "option1": "yes",
-    "option2": "no",
-    "option1Image": "swans.png",
-    "option2Image": "eyes.png",
-    "option1ZIndex": "1",
-    "option2ZIndex": "1"
-  }, {
     "phrase": "even now do u fear being left alone?",
     "option1": "yes",
     "option2": "no",
+    "option1Image": "assets/images/swans.png",
+    "option2Image": "assets/images/eyes.png",
+    "option1ZIndex": "1",
+    "option2ZIndex": "1",
+    "evilEyeCheck": "true"
+  }, {
+    "phrase": "bla bla next question",
+    "option1": "yes",
+    "option2": "no",
     "option1Image": "",
-    "option2Image": ""
+    "option2Image": "",
+    "option1ZIndex": "1",
+    "option2ZIndex": "1"
   }]
 }
