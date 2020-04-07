@@ -44,13 +44,25 @@ function askQuestion(questions) {
 
 function displayOption1(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
+  $appendedImage.css('display', 'none');
   // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
+  $appendedImage.fadeIn("slow");
+  $appendedImage.animate({
+    'display': 'inline'
+  }, 2000);
+
 }
 
 function displayOption2(currentQuestion) {
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
+  $appendedImage.css('display', 'none');
+  // set $appendedImage's CSS by pulling from the JSON data
   $appendedImage.appendTo('.postcard');
+  $appendedImage.fadeIn("slow");
+  $appendedImage.animate({
+    'display': 'inline'
+  }, 2000);
 }
 
 function questionsNotLoaded(jqxhr, textStatus, error) {
