@@ -80,9 +80,9 @@ function displayOption1() {
       queue: false,
       duration: 'slow'
     });
-  if (currentQuestion.evilEyeCheck !== null) {
-    activateEvilEye();
-  }
+    if (currentQuestion.evilEyeCheck !== null) {
+      activateEvilEye();
+    }
   setTimeout(recallAskQuestion, 2000);
 }
 
@@ -105,6 +105,7 @@ function displayOption2() {
 }
 
 function recallAskQuestion() {
+  console.log(currentQuestionIndex);
   currentQuestionIndex += 1;
   askQuestion(questions);
 }
@@ -123,11 +124,9 @@ function displayEvilEyeFigure() {
   // figureImage = $(`<img src ="assets/images/figure.png">`);
   figureImage.appendTo('.postcard');
   setInterval(changeFigureSize, 3000);
-
-  function changeFigureSize() {
-    console.log(width, figureImage);
-    let figureWidth = figureImage.style.width;
-    figureWidth += width + 'px';
-
-  }
+}
+function changeFigureSize() {
+  let figureWidth = figureImage.width();
+  figureWidth += width;
+  figureImage.width(figureWidth);
 }
