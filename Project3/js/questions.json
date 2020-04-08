@@ -2,8 +2,8 @@
   "description": "questions and their associated information",
   "questions": [{
     "phrase": "were you in a  forest or a desert?",
-    "option1": "a forest",
-    "option2": "a desert",
+    "option1": "forest",
+    "option2": "desert",
     "option1Image": "assets/images/forest.png",
     "option1ZIndex": "2",
     "option2ZIndex": "2",
