@@ -23,6 +23,7 @@ function setup() {
   $.getJSON("js/questions.json")
     .done(questionsLoaded) // successful load, calls this
     .fail(questionsNotLoaded); // calls this if load fails
+  $('#download').on('click', saveImage);
 }
 
 function questionsLoaded(data) {
@@ -80,9 +81,9 @@ function displayOption1() {
       queue: false,
       duration: 'slow'
     });
-    if (currentQuestion.evilEyeCheck !== null) {
-      activateEvilEye();
-    }
+  if (currentQuestion.evilEyeCheck !== null) {
+    activateEvilEye();
+  }
   setTimeout(recallAskQuestion, 2000);
 }
 
@@ -125,8 +126,16 @@ function displayEvilEyeFigure() {
   figureImage.appendTo('.postcard');
   setInterval(changeFigureSize, 3000);
 }
+
 function changeFigureSize() {
   let figureWidth = figureImage.width();
   figureWidth += width;
   figureImage.width(figureWidth);
+}
+
+function saveImage() { // working off of answers from : https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image
+  let download = document.getElementById("download");
+  let image = document.getElementById("postcard").toDataURL("image/png")
+    .replace("image/png", "image/octet-stream");
+  download.setAttribute("href", image);
 }

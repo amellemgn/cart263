@@ -22,11 +22,11 @@ body {
   align-items: center;
 }
 
-.paletteBox {
+/* .paletteBox {
  display: flex;
 
  flex-wrap: wrap;
-}
+} */
 
 .color {
   width: 50px;
