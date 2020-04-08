@@ -48,7 +48,7 @@ body {
   margin-right: 40px;
 }
 
-#colorPicker:hover {
+#colorPicker:hover, #download:hover, #evilEye:hover {
   background-color: white;
   border-style: double;
   border-width: medium;
@@ -64,11 +64,23 @@ body {
   background-color: blue;
 }
 
-#evilEye:hover {
+/* #evilEye:hover {
   background-color: pink;
+} */
+
+#blue{
+  background-color: blue;
 }
 
-
+#red{
+  background-color:red;
+}
+#yellow{
+  background-color:yellow;
+}
+#download{
+  background-color: pink;
+}
 #dialogueBox {
   width: 500px;
   height: 100px;

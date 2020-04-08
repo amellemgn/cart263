@@ -39,6 +39,7 @@ function askQuestion(questions) {
   if (annyang) {
     // set up voice commands (no voice commands yet?)
     var command = {};
+    // loop thru option1 array and add tocommand
     command[currentQuestion.option1] = displayOption1;
     command[currentQuestion.option2] = displayOption2;
     annyang.addCommands(command);
@@ -81,7 +82,7 @@ function displayOption1() {
       queue: false,
       duration: 'slow'
     });
-  if (currentQuestion.evilEyeCheck !== null) {
+  if (currentQuestion.evilEyeCheck !== undefined) {
     activateEvilEye();
   }
   setTimeout(recallAskQuestion, 2000);
