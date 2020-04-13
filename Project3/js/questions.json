@@ -2,32 +2,32 @@
   "description": "questions and their associated information",
   "questions": [{
     "phrase": "were you in a  forest or a desert?",
-    "option1": ["forest", "a forest"],
-    "option2": " desert",
+    "option1": ["forest", "a forest", "in a forest"],
+    "option2": ["desert", "a desert", "in a desert"],
     "option1Image": "assets/images/forest.png",
     "option1ZIndex": "2",
     "option2ZIndex": "2",
     "option2Image": "assets/images/desert.png"
   }, {
     "phrase": "was it day or night?",
-    "option1": "day",
-    "option2": "night",
+    "option1":["day", "it was day", "in the day"],
+    "option2": ["night", "it was night", "in the night"],
     "option1Image": "assets/images/sun.png",
     "option2Image": "assets/images/moon.png",
     "option1ZIndex": "0",
     "option2ZIndex": "0"
   } ,{
     "phrase": "do you want the acknowledgement of the large face in the clouds?",
-    "option1": "yes",
-    "option2": "no",
+    "option1": ["yes", "i do"],
+    "option2": ["no", "i don't"],
     "option1Image": "assets/images/face.png",
     "option2Image": "",
     "option1ZIndex": "1",
     "option2ZIndex": "1"
   },{
     "phrase": "even now do u fear being left alone?",
-    "option1": "yes",
-    "option2": "no",
+    "option1":["yes", "i do"],
+    "option2": ["no", "i don't"],
     "option1Image": "assets/images/swans.png",
     "option2Image": "assets/images/eyes.png",
     "option1ZIndex": "1",
@@ -35,8 +35,8 @@
     "evilEyeCheck": "true"
   }, {
     "phrase": "bla bla next question",
-    "option1": "yes",
-    "option2": "no",
+    "option1": ["yes", "i do"],
+    "option2": ["no", "i don't"],
     "option1Image": "",
     "option2Image": "",
     "option1ZIndex": "1",

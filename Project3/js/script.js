@@ -38,10 +38,21 @@ function askQuestion(questions) {
   displayQuestion(currentQuestion);
   if (annyang) {
     // set up voice commands (no voice commands yet?)
-    var command = {};
-    // loop thru option1 array and add tocommand
-    command[currentQuestion.option1] = displayOption1;
-    command[currentQuestion.option2] = displayOption2;
+    var command = {
+      "repeat": checkRepeat;
+      "can you repeat the question": checkRepeat;
+      "repeat the question": checkRepeat;
+      "say it again": checkRepeat;
+      "can you say it again": checkRepeat;
+    };
+    for (let i=0; i <currentQuestion.option1.length; i++){
+      command[currentQuestion.option1[i]] = displayOption1;
+    }
+    for (let i=0; i <currentQuestion.option2.length; i++){
+      command[currentQuestion.option2[i]] = displayOption2;
+    }
+    // command[currentQuestion.option1] = displayOption1;
+    // command[currentQuestion.option2] = displayOption2;
     annyang.addCommands(command);
     annyang.start();
     console.log(currentQuestion.option1);
@@ -139,4 +150,9 @@ function saveImage() { // working off of answers from : https://stackoverflow.co
   let image = document.getElementById("postcard").toDataURL("image/png")
     .replace("image/png", "image/octet-stream");
   download.setAttribute("href", image);
+}
+
+function checkRepeat(){
+  responsiveVoice.speak(currentQuestion.phrase, "UK English Female");
+  displayQuestion(currentQuestion);
 }
