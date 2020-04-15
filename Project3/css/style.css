@@ -7,13 +7,16 @@ body {
   border-width: medium;
   border-style: double;
 }
-
+img{
+  filter: opacity(100);
+}
 .postcard {
   border-style: double;
   border-width: medium;
   width: 600px;
   height: 600px;
   margin-top: 30px;
+  position: relative;
 }
 
 .centralContainer {
@@ -34,28 +37,27 @@ body {
   background-color: red;
   border-style: double;
   border-width: thin;
-  /* margin-left: 40px;
-  margin-right: 40px; */
+  margin-left: 10px;
+  margin-right: 10px;
 }
 
 #colorPicker {
-  background-color: green;
-  border-style: double;
-  border-width: thin;
+  /* border-style: double;
+  border-width: thin; */
   width: 50px;
   height: 50px;
-  margin-left: 40px;
-  margin-right: 40px;
+  /* margin-left: 40px;
+  margin-right: 40px; */
+
 }
 
 #colorPicker:hover, #download:hover, #evilEye:hover {
-  background-color: white;
-  border-style: double;
-  border-width: medium;
+  background-color: yellow;
+  /* border-style: double;
+  border-width: medium; */
 }
 
 #evilEye {
-  background-color: black;
   border-style: double;
   border-width: thin;
   width: 50px;
@@ -75,11 +77,10 @@ body {
 #red{
   background-color:red;
 }
-#yellow{
-  background-color:yellow;
-}
+
 #download{
-  background-color: pink;
+  width:50px;
+  height:50px;
 }
 #dialogueBox {
   width: 500px;

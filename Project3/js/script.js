@@ -26,20 +26,8 @@ function setup() {
     .fail(questionsNotLoaded); // calls this if load fails
 
   $('#download').on('click', saveImage);
-
-  // html2canvas(document.body).then(function(canvas) {
-  //   document.body.appendChild(canvas);
-  // });
-
-}
-
-function downloadURI(uri, name) {
-    var link = document.createElement("a");
-    link.download = name;
-    link.href = uri;
-    document.body.appendChild(link);
-    link.click();
-    // clearDynamicLink(link);
+  $('#red').on('click', function(){$('img').css('filter', "invert(16%) sepia(63%) saturate(7183%) hue-rotate(3deg) brightness(101%) contrast(127%)")});
+  $('#blue').on('click', function(){$('img').css('filter', "invert(7%) sepia(97%) saturate(7438%) hue-rotate(246deg) brightness(112%) contrast(133%)")});
 }
 //questionsNotLoaded
 //
@@ -178,19 +166,23 @@ function changeFigureSize() {
 //saveImage
 //
 //
-function saveImage() {
-//   console.log("save image");
-//   html2canvas($('#postcard'[0]), {
-//   onrendered: function(canvas) {
-//     var img = canvas.toDataURL()
-//     window.open(img);
-//   }
-// });
+function saveImage() {// https://github.com/niklasvh/html2canvas/issues/1313
 var element = $("#postcard")[0];
   html2canvas(element).then(function (canvas) {
       var myImage = canvas.toDataURL();
       downloadURI(myImage, "P3 image");
   });
+}
+//downloadURI
+//
+//
+function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    // clearDynamicLink(link);
 }
 //checkRepeat
 //
