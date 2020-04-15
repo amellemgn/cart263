@@ -1,5 +1,4 @@
 "use strict";
-
 /********************************************************************
 CART263 Project 3: re:Memory
 Amelle Margaron
@@ -25,12 +24,22 @@ function setup() {
   $.getJSON("js/questions.json")
     .done(questionsLoaded) // successful load, calls this
     .fail(questionsNotLoaded); // calls this if load fails
+
   $('#download').on('click', saveImage);
 
-  html2canvas(document.body).then(function(canvas) {
-    document.body.appendChild(canvas);
-  });
+  // html2canvas(document.body).then(function(canvas) {
+  //   document.body.appendChild(canvas);
+  // });
 
+}
+
+function downloadURI(uri, name) {
+    var link = document.createElement("a");
+    link.download = name;
+    link.href = uri;
+    document.body.appendChild(link);
+    link.click();
+    // clearDynamicLink(link);
 }
 //questionsNotLoaded
 //
@@ -169,11 +178,19 @@ function changeFigureSize() {
 //saveImage
 //
 //
-function saveImage() { // working off of answers from : https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image
-  let download = document.getElementById("download");
-  let image = document.getElementById("postcard").toDataURL("image/png")
-    .replace("image/png", "image/octet-stream");
-  download.setAttribute("href", image);
+function saveImage() {
+//   console.log("save image");
+//   html2canvas($('#postcard'[0]), {
+//   onrendered: function(canvas) {
+//     var img = canvas.toDataURL()
+//     window.open(img);
+//   }
+// });
+var element = $("#postcard")[0];
+  html2canvas(element).then(function (canvas) {
+      var myImage = canvas.toDataURL();
+      downloadURI(myImage, "P3 image");
+  });
 }
 //checkRepeat
 //
