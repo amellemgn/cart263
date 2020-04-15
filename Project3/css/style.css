@@ -15,26 +15,21 @@ img{
   border-width: medium;
   width: 600px;
   height: 600px;
-  margin-top: 30px;
+  margin: 30px 10px 10px 10px;
   position: relative;
 }
 
 .centralContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
 }
-
-/* .paletteBox {
- display: flex;
-
- flex-wrap: wrap;
-} */
-
 .color {
-  width: 50px;
-  height: 50px;
-  background-color: red;
+  width: 20px;
+  height: 20px;
   border-style: double;
   border-width: thin;
   margin-left: 10px;
@@ -42,11 +37,18 @@ img{
   display:none;
 }
 
+.gridWrapper{
+  width: 250px;
+  display: flex;
+  flex-wrap: wrap;
+
+}
 #colorPicker {
   /* border-style: double;
   border-width: thin; */
   width: 50px;
   height: 50px;
+  margin: 10px 10px 10px 10px;
   /* margin-left: 40px;
   margin-right: 40px; */
 
@@ -58,18 +60,19 @@ img{
   border-width: medium; */
 }
 
+
+#download{
+  width:50px;
+  height:50px;
+  margin: 10px 10px 10px 10px;
+}
+
 #evilEye {
-  border-style: double;
-  border-width: thin;
   width: 50px;
   height: 50px;
   display: none;
-  background-color: blue;
+  margin: 10px 10px 10px 10px;
 }
-
-/* #evilEye:hover {
-  background-color: pink;
-} */
 
 #blue{
   background-color: blue;
@@ -79,9 +82,8 @@ img{
   background-color:red;
 }
 
-#download{
-  width:50px;
-  height:50px;
+#yellow{
+  background-color: yellow;
 }
 #dialogueBox {
   width: 500px;

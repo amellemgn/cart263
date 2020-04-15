@@ -27,6 +27,7 @@ function setup() {
 
   $('#download').on('click', saveImage);
   $('#colorPicker').on('click', showPalette);
+  $('#dialogueBox').on('click', activateEvilEye);
 }
 
 function showPalette() {

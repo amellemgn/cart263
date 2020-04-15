@@ -31,12 +31,14 @@
 <body>
   <div class="centralContainer">
     <div class="postcard" id ="postcard"> </div>
-    <!-- <div class="paletteBox"> </div> -->
-    <div id="colorPicker"> <img src ="assets/images/eyedropper.png" height ="50px"> </div>
+    <div class="gridWrapper">
+    <div id="colorPicker"> <img src ="assets/images/eyedropper.png" height ="50px" filter ="grayscale(100%)"> </div>
     <div id="evilEye"> <img src ="assets/images/vision.png" height ="50px"></div>
     <a  id="download" download="image.png" onClick="saveImage()"> <img src="assets/images/othersave.png" height="50px"></a>
     <div class="color" id="red"> </div>
     <div class="color" id="blue"> </div>
+    <div class="color" id="yellow"> </div>
+  </div>
   </div>
   <div id="dialogueBox"> DIALOGUE BOX </div>
   <!-- <div id="capture" style="padding: 10px; background: #f5da55">
