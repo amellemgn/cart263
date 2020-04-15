@@ -16,22 +16,33 @@ let currentQuestionIndex = 0;
 let currentQuestion;
 let figureImage = $(`<img src ="assets/images/figure.png">`);
 let width = 50;
-
+//Loading setup when page loads
 $(document).ready(setup);
-
+//setup
+//
+//
 function setup() {
   $.getJSON("js/questions.json")
     .done(questionsLoaded) // successful load, calls this
     .fail(questionsNotLoaded); // calls this if load fails
   $('#download').on('click', saveImage);
-}
 
+  html2canvas(document.body).then(function(canvas) {
+    document.body.appendChild(canvas);
+  });
+
+}
+//questionsNotLoaded
+//
+//
 function questionsLoaded(data) {
   questions = data; //now the questions variable contains the array that is in questions.json
   console.log("questions");
   askQuestion(questions);
 }
-
+//askQuestions
+//
+//
 function askQuestion(questions) {
   currentQuestion = questions.questions[currentQuestionIndex];
   responsiveVoice.speak(currentQuestion.phrase, "UK English Female");
@@ -39,27 +50,27 @@ function askQuestion(questions) {
   if (annyang) {
     // set up voice commands (no voice commands yet?)
     var command = {
-      "repeat": checkRepeat;
-      "can you repeat the question": checkRepeat;
-      "repeat the question": checkRepeat;
-      "say it again": checkRepeat;
-      "can you say it again": checkRepeat;
+      "repeat": checkRepeat,
+      "can you repeat the question": checkRepeat,
+      "repeat the question": checkRepeat,
+      "say it again": checkRepeat,
+      "can you say it again": checkRepeat,
     };
-    for (let i=0; i <currentQuestion.option1.length; i++){
+    for (let i = 0; i < currentQuestion.option1.length; i++) {
       command[currentQuestion.option1[i]] = displayOption1;
     }
-    for (let i=0; i <currentQuestion.option2.length; i++){
+    for (let i = 0; i < currentQuestion.option2.length; i++) {
       command[currentQuestion.option2[i]] = displayOption2;
     }
-    // command[currentQuestion.option1] = displayOption1;
-    // command[currentQuestion.option2] = displayOption2;
     annyang.addCommands(command);
     annyang.start();
     console.log(currentQuestion.option1);
     console.log(currentQuestion.option2);
   }
 }
-
+//displayQuestions
+//
+//
 function displayQuestion(currentQuestion) { // drawn from w3 schools
   document.getElementById("dialogueBox").innerHTML = ""; //clearing the dialogue box
   let i = 0;
@@ -77,7 +88,9 @@ function displayQuestion(currentQuestion) { // drawn from w3 schools
   }
 
 }
-
+//displayOption1
+//
+//
 function displayOption1() {
   console.log("display1");
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
@@ -98,7 +111,9 @@ function displayOption1() {
   }
   setTimeout(recallAskQuestion, 2000);
 }
-
+//displayOption2
+//
+//
 function displayOption2() {
   console.log("display2");
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
@@ -116,43 +131,54 @@ function displayOption2() {
     });
   setTimeout(recallAskQuestion, 2000);
 }
-
+//recallAskQuestion
+//
+//
 function recallAskQuestion() {
   console.log(currentQuestionIndex);
   currentQuestionIndex += 1;
   askQuestion(questions);
 }
-
-
+//questionsNotLoaded
 function questionsNotLoaded(jqxhr, textStatus, error) {
   console.error(error);
 }
-
+//activateEvilEye
+//
+//
 function activateEvilEye() {
   $('#evilEye').css('display', "inline");
   $('#evilEye').on('click', displayEvilEyeFigure);
 }
-
+//displayEvilEyeFigure
+//
+//
 function displayEvilEyeFigure() {
   // figureImage = $(`<img src ="assets/images/figure.png">`);
   figureImage.appendTo('.postcard');
   setInterval(changeFigureSize, 3000);
 }
-
+//changeFigureSize
+//
+//
 function changeFigureSize() {
   let figureWidth = figureImage.width();
   figureWidth += width;
   figureImage.width(figureWidth);
 }
-
+//saveImage
+//
+//
 function saveImage() { // working off of answers from : https://stackoverflow.com/questions/11112321/how-to-save-canvas-as-png-image
   let download = document.getElementById("download");
   let image = document.getElementById("postcard").toDataURL("image/png")
     .replace("image/png", "image/octet-stream");
   download.setAttribute("href", image);
 }
-
-function checkRepeat(){
+//checkRepeat
+//
+//
+function checkRepeat() {
   responsiveVoice.speak(currentQuestion.phrase, "UK English Female");
   displayQuestion(currentQuestion);
 }
