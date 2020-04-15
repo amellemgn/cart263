@@ -26,8 +26,20 @@ function setup() {
     .fail(questionsNotLoaded); // calls this if load fails
 
   $('#download').on('click', saveImage);
-  $('#red').on('click', function(){$('img').css('filter', "invert(16%) sepia(63%) saturate(7183%) hue-rotate(3deg) brightness(101%) contrast(127%)")});
-  $('#blue').on('click', function(){$('img').css('filter', "invert(7%) sepia(97%) saturate(7438%) hue-rotate(246deg) brightness(112%) contrast(133%)")});
+  $('#colorPicker').on('click', showPalette);
+}
+
+function showPalette() {
+  console.log("showpalette");
+  $('.color').css('display', 'inline');
+  //reference from this codepen: https://codepen.io/sosuke/pen/Pjoqqp
+  $('#red').on('click', function() {
+    $('img').css('filter', "invert(16%) sepia(63%) saturate(7183%) hue-rotate(3deg) brightness(101%) contrast(127%)")
+  });
+  $('#blue').on('click', function() {
+    $('img').css('filter', "invert(7%) sepia(97%) saturate(7438%) hue-rotate(246deg) brightness(112%) contrast(133%)")
+  });
+  // $('#yellow').on('click', function(){$('img').css('filter', "invert(85%) sepia(83%) saturate(2294%) hue-rotate(0deg) brightness(106%) contrast(108%)")});
 }
 //questionsNotLoaded
 //
@@ -166,23 +178,23 @@ function changeFigureSize() {
 //saveImage
 //
 //
-function saveImage() {// https://github.com/niklasvh/html2canvas/issues/1313
-var element = $("#postcard")[0];
-  html2canvas(element).then(function (canvas) {
-      var myImage = canvas.toDataURL();
-      downloadURI(myImage, "P3 image");
+function saveImage() { // https://github.com/niklasvh/html2canvas/issues/1313
+  var element = $("#postcard")[0];
+  html2canvas(element).then(function(canvas) {
+    var myImage = canvas.toDataURL();
+    downloadURI(myImage, "P3 image");
   });
 }
 //downloadURI
 //
 //
 function downloadURI(uri, name) {
-    var link = document.createElement("a");
-    link.download = name;
-    link.href = uri;
-    document.body.appendChild(link);
-    link.click();
-    // clearDynamicLink(link);
+  var link = document.createElement("a");
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  // clearDynamicLink(link);
 }
 //checkRepeat
 //

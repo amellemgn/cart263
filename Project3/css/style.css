@@ -39,6 +39,7 @@ img{
   border-width: thin;
   margin-left: 10px;
   margin-right: 10px;
+  display:none;
 }
 
 #colorPicker {
