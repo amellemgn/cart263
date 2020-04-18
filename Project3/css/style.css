@@ -2,13 +2,29 @@ body {
   width: 100vh;
   height: 90vh;
   font-family: Courier;
-  font-style: italic;
+
   /* note: the difference between oblique (same font at an angle) and italic (not the same characters, but complementary) */
   border-width: medium;
   border-style: double;
 }
 img{
   filter: opacity(100);
+}
+.intro{
+  background-color: white;
+  text-align: center;
+  height:200px;
+  margin-top: 200px;
+}
+.intro p{
+vertical-align: middle;
+display:inline-block;
+line-height: 1.5;
+]
+}
+#enterGameButton:hover{
+color: yellow;
+font-style: oblique;
 }
 .postcard {
   border-style: double;
@@ -20,7 +36,7 @@ img{
 }
 
 .centralContainer {
-	display: flex;
+	display: none;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: center;
@@ -92,9 +108,14 @@ img{
   border-style: double; */
   left: 50px;
   bottom: 100px;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   line-height: 30px;
   text-shadow: 8px 10px 8px black ;
+  font-style: italic;
+}
+
+.wrapper .text{
+  visibility: hidden;
 }

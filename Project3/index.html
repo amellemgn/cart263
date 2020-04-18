@@ -22,30 +22,53 @@
   <!-- Library script(s) -->
 
   <!-- Add your required libraries here either as local files or CDN-hosted files -->
-<script src ="js/libraries/html2canvas.min.js"></script>
-<script src ="js/libraries/html2canvas.js"></script>
+  <script src="js/libraries/html2canvas.min.js"></script>
+  <script src="js/libraries/html2canvas.js"></script>
 
   <!-- My script(s) -->
   <script src="js/script.js"></script>
 </head>
+
 <body>
+  <div class="intro">
+    <p> WELCOME TO re:Memory <br>
+      WE LOVINGLY RENDER A FOREGONE PLACE, NESTLED IN THE FOLDS OF YOUR CEREBRAL CORTEX %%!!!! <br>
+      [ > OK. ] <br>
+      TO GRASP THIS FLEETING MOMENT, ANSWER QUESTIONS AS HONESTLY AS YOU CAN.<br>
+      [ > OK. ] <br>
+      IF YOU DON'T KNOW THE ANSWER, SAY SO. <br>
+      [ > OK. ] <br>
+      IF YOU NEED TO THINK A BIT, ASK TO REPEAT THE QUESTION. <br>
+      [ ~ OK! ] <br>
+      <div id="enterGameButton"> i'm ready </div>
+    </p>
+  </div>
   <div class="centralContainer">
-    <div class="postcard" id ="postcard"> </div>
+    <div class="postcard" id="postcard"> </div>
     <div class="gridWrapper">
+      <div class="wrapper">
+        <div id="colorPicker"> <img src="assets/images/eyedropper.png" height="50px" filter="grayscale(100%)" alt="eyedropper" class="hover"> </div>
+        <p class=text> select color? </p>
+        <div>
+          <div class="wrapper">
+            <div id="evilEye"> <img src="assets/images/vision.png" height="50px" class="hover"></div>
+            <p class=text> ?$552@@ !!!</p>
+          </div>
+          <div class="wrapper">
+            <a id="download" download="image.png" onClick="saveImage()"> <img src="assets/images/othersave.png" height="50px" class="hover"></a>
+            <p class=text> save img? </p>
+          </div>
+          <div class="color" id="red"> </div>
+          <div class="color" id="blue"> </div>
+          <div class="color" id="yellow"> </div>
 
-    <div id="colorPicker"> <img src ="assets/images/eyedropper.png" height ="50px" filter ="grayscale(100%)" alt="eyedropper"> </div>
-    <div id="evilEye"> <img src ="assets/images/vision.png" height ="50px"></div>
-    <a  id="download" download="image.png" onClick="saveImage()"> <img src="assets/images/othersave.png" height="50px"></a>
-
-    <div class="color" id="red"> </div>
-    <div class="color" id="blue"> </div>
-    <div class="color" id="yellow"> </div>
-
-  </div>
-  </div>
-  <div id="dialogueBox"> DIALOGUE BOX </div>
-  <!-- <div id="capture" style="padding: 10px; background: #f5da55">
+        </div>
+      </div>
+      <div id="dialogueBox"> DIALOGUE BOX </div>
+      <!-- <div id="capture" style="padding: 10px; background: #f5da55">
     <h4 style="color: #000; ">Hello world!</h4> -->
-</div>
+    </div>
 
-</body></html>
+</body>
+
+</html>

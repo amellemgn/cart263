@@ -10,6 +10,7 @@ recreate the scene before your very eyes.
 -> according to user choice, add, one visual element to the 'postcard'
 *********************************************************************/
 // declare project variables (avoiding global variables is good practice)
+let chimeSound = new Audio("assets/sounds/chime.wav");
 let questions;
 let currentQuestionIndex = 0;
 let currentQuestion;
@@ -24,10 +25,25 @@ function setup() {
   $.getJSON("js/questions.json")
     .done(questionsLoaded) // successful load, calls this
     .fail(questionsNotLoaded); // calls this if load fails
-
+$('#enterGameButton').on('click', function(){
+  $('.intro').hide();
+  $('.centralContainer').show();
+  $('.centralContainer').css("display", "flex");
+  $('#dialogueBox').show();
+  $('#dialogueBox').css("display", "flex");
+});
   $('#download').on('click', saveImage);
   $('#colorPicker').on('click', showPalette);
   $('#dialogueBox').on('click', activateEvilEye);
+
+  $('.hover').mouseover(function() {
+  $('.text').css("visibility","visible");
+  console.log("mouseover");
+});
+
+$('.hover').mouseout(function() {
+  $('.text').css("visibility","hidden");
+});
 }
 
 function showPalette() {
@@ -102,6 +118,7 @@ function displayQuestion(currentQuestion) { // drawn from w3 schools
 //
 //
 function displayOption1() {
+  chimeSound.play();
   console.log("display1");
   let $appendedImage = $(`<img src =" ${currentQuestion.option1Image}">`);
   // // set $appendedImage's CSS by pulling from the JSON data
@@ -125,6 +142,7 @@ function displayOption1() {
 //
 //
 function displayOption2() {
+  chimeSound.play();
   console.log("display2");
   let $appendedImage = $(`<img src =" ${currentQuestion.option2Image}">`);
   // // set $appendedImage's CSS by pulling from the JSON data
