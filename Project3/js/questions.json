@@ -10,13 +10,13 @@
     "option2Image": "assets/images/desert.png"
   }, {
     "phrase": "was it day or night?",
-    "option1":["day", "it was day", "in the day"],
+    "option1": ["day", "it was day", "in the day"],
     "option2": ["night", "it was night", "in the night"],
     "option1Image": "assets/images/sun.png",
     "option2Image": "assets/images/moon.png",
     "option1ZIndex": "0",
     "option2ZIndex": "0"
-  } ,{
+  }, {
     "phrase": "do you want the acknowledgement of the large face in the clouds?",
     "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
@@ -24,22 +24,30 @@
     "option2Image": "",
     "option1ZIndex": "1",
     "option2ZIndex": "1"
-  },{
-    "phrase": "even now do u fear being left alone?",
-    "option1":["yes", "i do"],
+  }, {
+    "phrase": "after all this time do you still feel that there is beauty in being left alone?",
+    "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
     "option1Image": "assets/images/swans.png",
     "option2Image": "assets/images/eyes.png",
     "option1ZIndex": "1",
-    "option2ZIndex": "1",
-    "evilEyeCheck": "true"
+    "option2ZIndex": "1"
   }, {
-    "phrase": "bla bla next question",
+    "phrase": "do you perhaps sometimes feel outside of your body, as if you are being watched? ",
     "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
     "option1Image": "",
     "option2Image": "",
     "option1ZIndex": "1",
+    "option2ZIndex": "1",
+    "evilEyeCheck": "true"
+  },{
+    "phrase": "do you feel an odd but non-negligeable thrum of socialization in your heart?",
+    "option1": ["yes", "i do"],
+    "option2": ["no", "i don't"],
+    "option1Image": "assets/images/telephonepoles.png",
+    "option2Image": "assets/images/lake.png",
+    "option1ZIndex": "1",
     "option2ZIndex": "1"
-  }]
+  },]
 }
