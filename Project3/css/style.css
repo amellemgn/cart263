@@ -95,4 +95,6 @@ img{
   display: flex;
   justify-content: center;
   align-items: center;
+  line-height: 30px;
+  text-shadow: 8px 10px 8px black ;
 }

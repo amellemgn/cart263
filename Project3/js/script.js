@@ -35,7 +35,7 @@ function showPalette() {
   $('.color').css('display', 'inline');
   //reference from this codepen: https://codepen.io/sosuke/pen/Pjoqqp
   $('#red').on('click', function() {
-    $('img').css('filter', "invert(16%) sepia(63%) saturate(7183%) hue-rotate(3deg) brightness(101%) contrast(127%)")
+    $('.postcard img').css('filter', "invert(16%) sepia(63%) saturate(7183%) hue-rotate(3deg) brightness(101%) contrast(127%)")
   });
   $('#blue').on('click', function() {
     $('img').css('filter', "invert(7%) sepia(97%) saturate(7438%) hue-rotate(246deg) brightness(112%) contrast(133%)")
