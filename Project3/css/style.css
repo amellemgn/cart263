@@ -2,30 +2,34 @@ body {
   width: 100vh;
   height: 90vh;
   font-family: Courier;
-
   /* note: the difference between oblique (same font at an angle) and italic (not the same characters, but complementary) */
   border-width: medium;
   border-style: double;
 }
-img{
+
+img {
   filter: opacity(100);
 }
-.intro{
+
+.intro {
   background-color: white;
   text-align: center;
-  height:200px;
+  height: 200px;
   margin-top: 200px;
 }
-.intro p{
-vertical-align: middle;
-display:inline-block;
-line-height: 1.5;
-]
+
+.intro p {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.5;
+  ]
 }
-#enterGameButton:hover{
-color: yellow;
-font-style: oblique;
+
+#enterGameButton:hover {
+  color: yellow;
+  font-style: oblique;
 }
+
 .postcard {
   border-style: double;
   border-width: medium;
@@ -36,13 +40,14 @@ font-style: oblique;
 }
 
 .centralContainer {
-	display: none;
-	flex-direction: row;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-	align-content: stretch;
+  display: none;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: stretch;
 }
+
 .color {
   width: 20px;
   height: 20px;
@@ -50,15 +55,15 @@ font-style: oblique;
   border-width: thin;
   margin-left: 10px;
   margin-right: 10px;
-  display:none;
+  display: none;
 }
 
-.gridWrapper{
+.gridWrapper {
   width: 250px;
   display: flex;
   flex-wrap: wrap;
-
 }
+
 #colorPicker {
   /* border-style: double;
   border-width: thin; */
@@ -67,7 +72,6 @@ font-style: oblique;
   margin: 10px 10px 10px 10px;
   /* margin-left: 40px;
   margin-right: 40px; */
-
 }
 
 #colorPicker:hover, #download:hover, #evilEye:hover {
@@ -76,10 +80,9 @@ font-style: oblique;
   border-width: medium; */
 }
 
-
-#download{
-  width:50px;
-  height:50px;
+#download {
+  width: 50px;
+  height: 50px;
   margin: 10px 10px 10px 10px;
 }
 
@@ -90,17 +93,18 @@ font-style: oblique;
   margin: 10px 10px 10px 10px;
 }
 
-#blue{
+#blue {
   background-color: blue;
 }
 
-#red{
-  background-color:red;
+#red {
+  background-color: red;
 }
 
-#yellow{
+#yellow {
   background-color: yellow;
 }
+
 #dialogueBox {
   width: 500px;
   height: 100px;
@@ -112,10 +116,10 @@ font-style: oblique;
   justify-content: center;
   align-items: center;
   line-height: 30px;
-  text-shadow: 8px 10px 8px black ;
+  text-shadow: 8px 10px 8px black;
   font-style: italic;
 }
 
-.wrapper .text{
+.wrapper .text {
   visibility: hidden;
 }
