@@ -41,9 +41,13 @@ function setup() {
   $('#enterGameButton').on('click', function() {
     $('.intro').hide();
     $('.centralContainer').show();
-    $('.centralContainer').css("display", "flex");
+     $('.centralContainer').css("display", "flex");
     $('#dialogueBox').show();
     $('#dialogueBox').css("display", "flex");
+    $('.gridWrapper').show();
+    $('.gridWrapper').css("display", "flex");
+    $('#postcard').show();
+    $('#postcard').css("display", "absolute");
   });
 // Manage interactive elements on page: clicking each div/icon, really, calls corresponding function
   $('#download').on('click', saveImage);
