@@ -22,8 +22,18 @@ img {
   vertical-align: middle;
   display: inline-block;
   line-height: 1.5;
-  ]
+  text-align: justify;
+
 }
+
+.intro p1 {
+  vertical-align: middle;
+  display: inline-block;
+  line-height: 1.5;
+  text-align: center;
+
+}
+
 
 #enterGameButton:hover {
   color: yellow;
@@ -122,4 +132,5 @@ img {
 
 .wrapper .text {
   visibility: hidden;
+  font-size: 12px;
 }

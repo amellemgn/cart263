@@ -1,7 +1,7 @@
 {
   "description": "questions and their associated information",
   "questions": [{
-    "phrase": "were you in a  forest or a desert?",
+    "phrase": "WERE YOU IN A FOREST OR A DESERT?",
     "option1": ["forest", "a forest", "in a forest"],
     "option2": ["desert", "a desert", "in a desert"],
     "option1Image": "assets/images/forest.png",
@@ -9,7 +9,7 @@
     "option2ZIndex": "2",
     "option2Image": "assets/images/desert.png"
   }, {
-    "phrase": "was it day or night?",
+    "phrase": "WAS IT DAY OR NIGHT?",
     "option1": ["day", "it was day", "in the day"],
     "option2": ["night", "it was night", "in the night"],
     "option1Image": "assets/images/sun.png",
@@ -17,7 +17,7 @@
     "option1ZIndex": "0",
     "option2ZIndex": "0"
   }, {
-    "phrase": "do you want the acknowledgement of the large face in the clouds?",
+    "phrase": "DO YOU REQUIRE THE ACKNOWLEDGMENT OF THE LARGE FACE IN THE CLOUDS?",
     "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
     "option1Image": "assets/images/face.png",
@@ -25,15 +25,15 @@
     "option1ZIndex": "1",
     "option2ZIndex": "1"
   }, {
-    "phrase": "after all this time do you still feel that there is beauty in being left alone?",
-    "option1": ["yes", "i do"],
-    "option2": ["no", "i don't"],
+    "phrase": "HAVE YOU RECONCILED YOUR IDEA OF BEAUTY WITH THE REFLECTION YOU FACE EVERY MORNING?",
+    "option1": ["yes", "i have"],
+    "option2": ["no", "i haven't", "i have not"],
     "option1Image": "assets/images/swans.png",
     "option2Image": "assets/images/eyes.png",
     "option1ZIndex": "1",
     "option2ZIndex": "1"
   }, {
-    "phrase": "do you perhaps sometimes feel outside of your body, as if you are being watched? ",
+    "phrase": "WILL SOME TERRIBLE THING BEFALL YOU SHOULD YOU PAUSE TO REST?",
     "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
     "option1Image": "",
@@ -42,12 +42,14 @@
     "option2ZIndex": "1",
     "evilEyeCheck": "true"
   },{
-    "phrase": "do you feel an odd but non-negligeable thrum of socialization in your heart?",
+    "phrase": "WILL THE LIFE YOU'VE MADE FOR YOURSELF EVER FIX THE TWINGE OF YEARNING WHEN YOU LOOK OUTSIDE?",
     "option1": ["yes", "i do"],
     "option2": ["no", "i don't"],
     "option1Image": "assets/images/telephonepoles.png",
     "option2Image": "assets/images/lake.png",
     "option1ZIndex": "1",
     "option2ZIndex": "1"
-  }]
+  },{
+    "phrase": "YOU'VE REACHED THE END OF YOUR TRIAL. THANK YOU FOR TRYING re:MEmory"
+    }]
 }
