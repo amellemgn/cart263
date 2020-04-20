@@ -21,7 +21,8 @@ let currentQuestion;
 let chimeSound = new Audio("assets/sounds/chime.wav");
 let figureImage = $(`<img src ="assets/images/figure.png">`);
 let width = 10;
-
+const titleFadeIn = 900;
+const titleFadeOut = 300;
 //Call setup when page loads
 $(document).ready(setup);
 
@@ -34,8 +35,8 @@ function setup() {
     .done(questionsLoaded) // successful load, calls this
     .fail(questionsNotLoaded); // calls this if load fails
 //Create fade-in effect for intro title text
-    $('.intro p').fadeIn(900).fadeOut(200).fadeIn(300);
-    $('.intro p1').fadeIn(900).fadeOut(200).fadeIn(300);
+    $('.intro p').fadeIn(titleFadeIn).fadeOut(titleFadeOut).fadeIn(titleFadeOut);
+    $('.intro p1').fadeIn(titleFadeIn).fadeOut(titleFadeOut).fadeIn(titleFadeIn);
 //When user clicks 'i'm ready', hide intro title and load game. Make sure flexbox display setting is added.
   $('#enterGameButton').on('click', function() {
     $('.intro').hide();
